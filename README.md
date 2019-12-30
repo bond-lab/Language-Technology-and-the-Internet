@@ -1,4 +1,4 @@
-# Language-Technology-and-the-Internet
+# HG2052 Language Technology and the Internet
 
 This course explores the intersection of language, technology and the
 internet.  We start by looking at the introduction of writing and how
