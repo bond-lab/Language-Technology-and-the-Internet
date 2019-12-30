@@ -1,6 +1,18 @@
 # Language-Technology-and-the-Internet
 
-This course explores the impact of technology on everyday use of language. The focus is on modern information technology, but the course will begin with a review of some 'old' technology (e.g. writing, typing, sound recording, radio and television) in order to show how all technology can potentially change language use. Like so many other aspects of life, language communication has been revolutionised by the introduction of the Internet. We will look at the structure and use of English have been shaped by the popularity of new modes of communication made available by the Internet: SMS, e-mail, chatrooms, Internet Relay Chat, Usenet newsgroups, World Wide Web pages, and virtual worlds. The implications of these changes for our thinking and understanding of language will also be discussed.
+This course explores the intersection of language, technology and the
+internet.  We start by looking at the introduction of writing and how
+it can be represented on computers.  We then look at speech and how it
+differs from text.  These are compared to different media of
+communication such as email, blogs and chat.  The internet has made
+new methods of writing possible, as well as made access to an
+incredible variety and amount of text.  We study how wikipedia pages
+are written, and students group together to write their own pages.  In
+the second half of the course, we learn about how information is
+represented electronically, both as text and meta-text.  We finish
+with a description of the semantic web and citation networks. The
+implications of this technology for our thinking and understanding of
+language will also be discussed.
 
 This course is created by Francis Bond.
 
