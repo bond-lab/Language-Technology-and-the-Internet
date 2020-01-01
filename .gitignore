@@ -1,0 +1,11 @@
+slides/*.aux
+slides/*.bbl
+slides/*.blg
+slides/*.fdb_latexmk
+slides/*.fls
+slides/*.log
+slides/*.out
+slides/*.pdf
+*~
+*/*~
+*/*/*~
