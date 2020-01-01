@@ -1,0 +1,181 @@
+%%
+%%%  Macros
+%%%
+\newcommand{\logo}{~}
+\MyLogo{HG2052 (2019)}
+%\newcommand{\Story}{\SHA{HOUN}{The Hound of the Baskervilles}}
+
+\newcommand{\header}[3]{%
+\title{\vspace*{-2ex} \Large HG2052
+\\\large  Language, Technology and the Internet
+\\[2ex] \Large  \emp{#2}}
+\author{\blu{Francis Bond}   \\ 
+\normalsize  \textbf{Division of Linguistics and Multilingual Studies}\\
+\normalsize  \url{http://www3.ntu.edu.sg/home/fcbond/}\\
+\normalsize  \texttt{bond@ieee.org}}
+\MyLogo{HG2052 (2019)}
+\date{#1 \\  Location: TR+106 (SS4-01-40) }
+\renewcommand{\logo}{#2}
+ \hypersetup{
+   pdfinfo={
+     Author={Francis Bond},
+     Title={#1: #2},
+     Subject={HG2052: Language, Technology and the Internet},
+     Keywords={Language, Technology, Internet},
+     License={CC BY 4.0}
+   }
+ %  pdfcopyright={Copyright © Francis Bond. Creative Commons 4.0 Attribution License.}
+ %  pdflicenseurl={http://creativecommons.org/licenses/by/4.0/}
+ }
+}
+
+
+%%
+%% Multilingual Stuff
+%%
+\usepackage[a4paper,landscape,margin=25mm]{geometry}
+
+\usepackage{fontenc}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setmainfont{TeX Gyre Pagella}
+%\setmainfont{Linux Libertine}
+%\setmainfont{Charis SIL}
+\newfontfamily{\ipafont}{Gentium}
+\newcommand{\ipa}[1]{{\ipafont\selectfont #1}}
+\usepackage{xeCJK}
+
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+%\setCJKttfont{Noto Sans CJK SC}
+%\setCJKmainfont{WenQuanYi Micro Hei}
+%\clearpage
+%\setCJKmainfont{AR PL SungtiL GB}
+
+\usepackage[xetex]{xcolor}
+\usepackage[xetex]{graphicx}
+\newcommand{\blu}[1]{\textcolor{blue}{#1}}
+\newcommand{\grn}[1]{\textcolor{green}{#1}}
+\newcommand{\hide}[1]{\textcolor{white}{#1}}
+\newcommand{\emp}[1]{\textcolor{red}{#1}}
+\newcommand{\txx}[1]{\textbf{\textcolor{blue}{#1}}}
+\newcommand{\lex}[1]{\textbf{\mtcitestyle{#1}}}
+
+\usepackage{pifont}
+\renewcommand{\labelitemi}{\textcolor{violet}{\ding{227}}}
+\renewcommand{\labelitemii}{\textcolor{purple}{\ding{226}}}
+
+\newcommand{\subhead}[1]{\noindent\textbf{#1}\\[5mm]}
+
+\newcommand{\Bad}{\emp{\raisebox{0.15ex}{\ensuremath{\mathbf{\otimes}}}}}
+\newcommand{\bad}{*}
+
+\newcommand{\com}[1]{\hfill \textnormal{(\emp{#1})}}%
+\newcommand{\cxm}[1]{\hfill \textnormal{(\txx{#1})}}%
+\newcommand{\cmm}[1]{\hfill \textnormal{(#1)}}%
+\usepackage{amssymb}
+\usepackage{relsize,xspace}
+\newcommand{\into}{\ensuremath{\rightarrow}\xspace}
+\newcommand{\ent}{\ensuremath{\Rightarrow}\xspace}
+\newcommand{\nent}{\ensuremath{\not\Rightarrow}\xspace}
+\newcommand{\tot}{\ensuremath{\leftrightarrow}\xspace}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+     colorlinks,
+     linkcolor={blue!50!black},
+     citecolor={red!50!black},
+     urlcolor={blue!80!black}
+}
+%\usepackage{hyperxmp}
+\usepackage{url}
+\newcommand{\lurl}[1]{\MyLogo{\url{#1}}}
+
+\usepackage{mygb4e}
+\let\eachwordone=\itshape
+\newcommand{\lx}[1]{\textbf{\textit{#1}}}
+\newcommand{\ix}{\ex\it}
+
+\newcommand{\cen}[2]{\multicolumn{#1}{c}{#2}}
+%\usepackage{times}
+%\usepackage{nttfoilhead}
+\newcommand{\myslide}[1]{%
+\foilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}%
+\leftheader{}%
+\MyLogo{\logo}}
+
+\newcommand{\mytask}[1]{%
+\foilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}
+\leftheader{🔍 Hi}%
+\MyLogo{\logo}}
+
+\newcommand{\myslider}[1]{\rotatefoilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}}
+%\newcommand{\myslider}[1]{\rotatefoilhead{\raisebox{-8mm}{\emp{#1}}}}
+
+\newcommand{\section}[1]{\myslide{}{\begin{center}\Huge \emp{#1}\end{center}}}
+
+\usepackage{tcolorbox}
+% \newcommand{\task}{\marginpar{\raisebox{-1ex}{\large
+%       \tcbox[colframe=red,colback=white,arc=3pt]{\textbf{?}}}}}
+% \newcommand{\task}{\marginpar{\raisebox{-1ex}{
+%       \hspace{-0.5em}\tcbox[colframe=red,colback=white,arc=3pt]{%
+%         \includegraphics[width=1.5em]{pics/detective}}}}}
+\newcommand{\task}{\marginpar{\raisebox{-2ex}{
+      \hspace{-0.5em}\reflectbox{\includegraphics[width=2em]{pics/detective}}}}}
+
+\usepackage[lyons,j,e,k]{mtg2e}
+\renewcommand{\mtcitestyle}[1]{\textcolor{teal}{\textsl{#1}}}
+%\renewcommand{\mtcitestyle}[1]{\textsl{#1}}
+\newcommand{\chn}{\mtciteform}
+\newcommand{\cmn}{\mtciteform}
+\newcommand{\iz}[1]{\textup{\texttt{\textcolor{blue}{\textbf{#1}}}}}
+\newcommand{\con}[1]{\textsc{#1}}
+\newcommand{\gm}{\textsc}
+\newcommand{\cmp}[1]{{[\textsc{#1}]}}
+\newcommand{\sr}[1]{\ensuremath{\langle}#1\ensuremath{\rangle}}
+\usepackage[normalem]{ulem}
+\newcommand{\ul}{\uline}
+\newcommand{\uul}{\uuline}
+\newcommand{\wl}{\uwave}
+\newcommand{\vs}{\ensuremath{\Leftrightarrow}~}
+%%%
+%%% Bibliography
+%%%
+\usepackage{natbib}
+%\usepackage{url}
+\usepackage{bibentry}
+
+
+%%% From Tim
+\newcommand{\WMngram}[1][]{$n$-gram#1\xspace}
+\newcommand{\infers}{$\rightarrow$\xspace}
+
+
+
+\usepackage{rtrees,qtree}
+\renewcommand{\lf}[1]{\br{#1}{}}
+\usepackage{avm}
+%\avmoptions{topleft,center}
+\newcommand{\ft}[1]{\textsc{#1}}
+\newcommand{\val}[1]{\textit{#1}}
+\newcommand{\typ}[1]{\textit{#1}}
+\avmfont{\sc}
+%\avmvalfont{\sc}
+\renewcommand{\avmtreefont}{\sc}
+\avmsortfont{\it}
+
+
+%%% From CSLI book
+\newcommand{\mc}{\multicolumn}
+\newcommand{\HD}{\textbf{H}\xspace}
+\newcommand{\el}{\< \>}
+\makeatother
+\long\def\smalltree#1{\leavevmode{\def\\{\cr\noalign{\vskip12pt}}%
+\def\mc##1##2{\multispan{##1}{\hfil##2\hfil}}%
+\tabskip=1em%
+\hbox{\vtop{\halign{&\hfil##\hfil\cr
+#1\crcr}}}}}
+\makeatletter
+
+\newcommand{\sh}[1]{\href{https://www.arthur-conan-doyle.com/index.php?title=#1}{#1}}
+\newcommand{\SHA}[2]{\href{https://www.arthur-conan-doyle.com/index.php?title=#1}{\textit{#2}}}

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="447" height="245" viewBox="23.5 17.5 447 245">
+  <clipPath id="clip2">
+    <rect x="18.5" y="13.5" width="75" height="234"/>
+  </clipPath>
+  <text x="92" y="228" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Others</text>
+  <text x="92" y="212" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Dutch</text>
+  <text x="92" y="196" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Turkish</text>
+  <text x="92" y="180" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Polish</text>
+  <text x="92" y="163" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Italian</text>
+  <text x="92" y="147" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Portuguese</text>
+  <text x="92" y="131" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Chinese</text>
+  <text x="92" y="114" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">French</text>
+  <text x="92" y="98" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Spanish</text>
+  <text x="92" y="82" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Japanese</text>
+  <text x="92" y="66" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">German</text>
+  <text x="92" y="49" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">Russian</text>
+  <text x="92" y="33" text-anchor="end" dy="4" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip2)">English</text>
+  <rect x="94" y="24" width="363" height="214" fill="#FFFFFF"/>
+  <g>
+    <clipPath id="clip3">
+      <rect x="94.5" y="23.5" width="363" height="214"/>
+    </clipPath>
+    <line x1="125" y1="237" x2="125" y2="25" stroke="#AAAAAA" stroke-width="1" clip-path="url(#clip3)"/>
+    <g clip-path="url(#clip3)">
+      <rect x="94" y="222.74" width="61.21" height="11.19" fill="#AAAAAA"/>
+      <rect x="94" y="206.47" width="7.96" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="190.2" width="7.96" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="173.92" width="10.41" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="157.65" width="11.02" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="141.38" width="14.08" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="125.1" width="20.2" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="108.83" width="24.48" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="92.56" width="28.16" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="76.28" width="30.6" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="60.01" width="36.72" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="43.74" width="36.72" height="11.19" fill="#6282C8"/>
+      <rect x="94" y="27.46" width="340.93" height="11.19" fill="#6282C8"/>
+    </g>
+  </g>
+  <polyline fill="none" stroke="#7F7F7F" stroke-width="1" points="94,238,94,24"/>
+  <polyline fill="none" stroke="#7F7F7F" stroke-width="1" points="457,238,94,238"/>
+  <clipPath id="clip4">
+    <rect x="83.5" y="237.5" width="378" height="20"/>
+  </clipPath>
+  <line x1="94" y1="238" x2="94" y2="244" stroke="#7F7F7F" stroke-width="1" clip-path="url(#clip4)"/>
+  <line x1="125" y1="238" x2="125" y2="244" stroke="#AAAAAA" stroke-width="1" clip-path="url(#clip4)"/>
+  <line x1="155" y1="238" x2="155" y2="244" stroke="#7F7F7F" stroke-width="1" clip-path="url(#clip4)"/>
+  <line x1="216" y1="238" x2="216" y2="244" stroke="#7F7F7F" stroke-width="1" clip-path="url(#clip4)"/>
+  <line x1="278" y1="238" x2="278" y2="244" stroke="#7F7F7F" stroke-width="1" clip-path="url(#clip4)"/>
+  <line x1="339" y1="238" x2="339" y2="244" stroke="#7F7F7F" stroke-width="1" clip-path="url(#clip4)"/>
+  <line x1="400" y1="238" x2="400" y2="244" stroke="#7F7F7F" stroke-width="1" clip-path="url(#clip4)"/>
+  <text x="94" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip4)">0%</text>
+  <text x="125" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#444444" clip-path="url(#clip4)">5%</text>
+  <text x="155" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip4)">10%</text>
+  <text x="216" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip4)">20%</text>
+  <text x="278" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip4)">30%</text>
+  <text x="339" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip4)">40%</text>
+  <text x="400" y="245" text-anchor="middle" dy="11" font-family="Helvetica" font-size="12" fill="#000000" clip-path="url(#clip4)">50%</text>
+</svg>

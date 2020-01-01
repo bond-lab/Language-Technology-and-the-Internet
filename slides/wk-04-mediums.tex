@@ -1,0 +1,590 @@
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
+
+\input{headx.tex}
+
+\header{Lecture 4}{New Mediums:  Email; Usenet; Blogs, Chat, \ldots}
+
+
+\begin{document}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+
+\maketitle
+
+
+\include{schedule}
+
+
+\myslide{Revision of Speech and Language Technology}
+
+\begin{itemize}
+\item The need for speech representation
+\item Storing sound
+\item Transforming Speech
+  \begin{itemize}
+  \item \blu{Automatic Speech Recognition (ASR)}: sounds to text
+  \item \blu{Text-to-Speech Synthesis (TTS)}: texts to sounds
+  \end{itemize}
+\item Speech technology --- the Telephone!
+\end{itemize}
+
+
+\myslide{How good are the systems?}
+
+  \begin{tabular}{lrrr}
+    Task & Vocab & WER (\%) & WER  (\%) adapted \\ \hline
+    Digits & 11 & 0.4 & 0.2 \\
+    Dialogue (travel) & 21,000 & 10.9 & --- \\
+    Dictation (WSJ) & 5,000 & 3.9 & 3.0 \\
+    Dictation (WSJ) & 20,000 & 10.0 & 8.6 \\
+    Dialogue (noisy, army) & 3,000 & 42.2 & 31.0 \\
+    Phone Conversations & 4,000 & 41.9 & 31.0 \\
+  \end{tabular}
+
+Results of various DARPA competitions (from Richard Sproat's slides)
+
+\myslide{Why is ASR so difficult?}
+\begin{itemize}
+\item Speaker variability
+  \begin{itemize}
+  \item Gender
+  \item Dialect/Foreign Accent
+  \item Individual Differences: Physical differences; Language differences (idiolect)‏
+  \end{itemize}
+\item Many, many rare events
+  \begin{itemize}
+  \item 300 out of 2000 diphones in the core set for the AT\&T NextGen system occur only once in a 2-hour speech database
+  \end{itemize}
+\end{itemize}
+
+
+\myslide{Two steps in a TTS system}
+
+\begin{enumerate}
+\item Linguistic Analysis
+  \begin{itemize}
+  \item Sentence Segmentation
+  \item Abbreviations: \eng{Dr Smith lives on Nanyang Dr. He is \ldots}
+  \item Word Segmentation: 
+    \begin{itemize}
+    \item 森山 前 日銀 総裁 \jpn{Moriyama zen Nichigin Sousai}
+    \item[\Bad]  森山 前日 銀 総裁　\jpn{Moriyama zennichi gin Sousai}
+      \end{itemize}
+    \end{itemize}
+\item Speech Synthesis
+  \begin{itemize}
+  \item Find the pronunciation
+  \item Generate sounds
+  \item Add intonation
+  \end{itemize}
+\end{enumerate}
+
+\myslide{Speech Synthesis}
+  \begin{itemize}
+  \item \blu{Articulatory Synthesis:} Attempt to model human articulation.
+  \item \blu{Formant Synthesis:} Bypass modeling of human articulation, and model acoustics directly.
+  \item \blu{Concatenative Synthesis:} Synthesize from stored units of actual speech
+  \end{itemize}
+  
+\myslide{Prosody of Emotion}
+
+\begin{itemize}
+\item Excitement: Fast, very high pitch, loud
+\item Hot anger: Fast, high pitch, strong, falling accent, loud
+\item Fear: Jitter
+\item Sarcasm: Prolonged accent, late peak
+\item Sad: Slow, low pitch
+\end{itemize}
+
+\begin{quote}
+  The main determinant of ``naturalness'' in speech synthesis is not
+  ``voice quality'', but natural-sounding prosody (intonation and
+  duration) 
+  \begin{flushright}
+    Richard Sproat
+  \end{flushright}
+\end{quote}
+
+
+\myslide{The Telephone}
+
+\begin{tabular}{ll}
+  \textbf{Speech like} & \textbf{Text like} \\ \hline
+  \blu{time bound} & space bound \\
+  \blu{spontaneous} & contrived \\
+  face-to-face & \blu{visually decontextualized} \\
+  \blu{loosely structured} & elaborately structured \\
+  \blu{socially interactive} & factually communicative \\  
+  \blu{immediately revisable} & repeatedly revisable \\
+  \blu{prosodically rich} & graphically rich \\
+\end{tabular}
+
+
+\myslide{Overview}
+\MyLogo{Mainly based on the analysis of \citet{Crystal:2006}.}
+A look at some different modalities of communication
+
+\begin{itemize}
+\item Email
+\item Usenet
+\item Chat
+\item Blogs
+\end{itemize}
+
+
+
+
+\myslide{Email}
+
+
+\begin{tabular}{ll}
+  \textbf{Speech like} & \textbf{Text like} \\ \hline
+  \blu{time bound}* &  \blu{space bound} (deletable) \\
+  \blu{spontaneous}* & \blu{contrived}* \\
+  face-to-face & \blu{visually decontextualized} \\
+  \blu{loosely structured}* & \blu{elaborately structured}* \\
+  \blu{socially interactive}* & \blu{factually communicative} \\  
+  immediately revisable & \blu{repeatedly revisable}* \\
+  prosodically rich & graphically rich * \\
+\end{tabular}
+
+How is it different from snailmail?
+
+\myslide{Email vs Mail}
+
+\begin{itemize}
+\item Faster (potentially)
+\item Easy to include multiple participants
+\item Easy to include the original in the reply
+\item Copies stored with each participant
+  \\ (and temporarily at all intermediate nodes)
+\end{itemize}
+
+\myslide{Email Nettiquette}
+\url{http://pthree.org/2010/09/18/email-netiquette-part-1/}
+\begin{enumerate}
+\item Use plain text (preferred) or HTML
+\item Top-post only when forwarding. Bottom-post otherwise.
+\item Trim your replies.
+\item Keep you signature under five lines, and use the signature separator “- -  ” (dash, dash, space).
+\item Do not attach unnecessary files, keep attachments small, and don't attach proprietary formats.
+\item Keep the width of your message under 80 characters
+\item Use a client that sends threading headers.
+\item Reply only to the necessary people (don't abuse CC: or “reply to all”).
+\item Be short and concise. Don't ramble (stay on topic).
+\item Break up your paragraphs.
+\item Use proper spelling, grammar and punctuation (avoid CAPS).
+\item Don't answer spam, and don't send out spam.
+\end{enumerate}
+
+\begin{quote}
+  These already seem quaint to me (FCB) although I try and follow them.
+\end{quote}
+
+\myslide{A Gricean Analysis}
+\MyLogo{\url{https://en.wikipedia.org/wiki/Cooperative_principle}}
+\begin{description}
+\item [Maxim of Quantity] ~
+  \begin{itemize}
+  \item Make your contribution as informative as is required (for the current purposes of the exchange).
+  \item Do not make your contribution more informative than is required.
+  \end{itemize}
+\item [Maxim of Quality] ~
+  \begin{itemize}
+  \item Do not say what you believe to be false.
+  \item Do not say that for which you lack proper evidence.
+  \end{itemize}
+\newpage
+\item [Maxim of Relation] ~
+  \begin{itemize}
+  \item Be relevant.
+  \end{itemize}
+\item [Maxim of Manner] ~
+  \begin{itemize}
+  \item Be perspicuous [= be easily understood]
+  \item Avoid obscurity of expression.
+  \item Avoid ambiguity
+  \item Be brief (avoid unnecessary prolixity)
+  \item Be orderly
+  \end{itemize}
+\end{description}
+
+\emp{Discuss each recommendation and try to see which Maxim or Maxims fit.}
+
+
+\myslide{Top-Posting}
+
+\begin{verbatim}
+Trim the message, leaving appropriate context, then 
+reply below.
+> How should I reply to email then?
+>> No.
+>>> Should I include quotations after my reply?
+>>>> Because it messes up the order in which people normally 
+>>>> read text.
+>>>>> Why is top-posting such a bad thing?
+>>>>>> Top-posting.
+>>>>>>> What is the most annoying thing in email?
+\end{verbatim}
+
+\myslide{Bottom-Posting}
+
+\begin{verbatim}
+>>>>>>> What is the most annoying thing in email?
+>>>>>> Top-posting.
+>>>>> Why is top-posting such a bad thing?
+>>>> Because it messes up the order in which people normally 
+>>>> read text.
+>>> Should I include quotations after my reply?
+>> No.
+> How should I reply to email then?
+Trim the message, leaving appropriate context, then 
+reply below.
+\end{verbatim}
+\hrule \hrule
+\begin{verbatim}
+[snip]
+> How should I reply to email then?
+Trim the message, leaving appropriate context, then  
+reply below.
+\end{verbatim}
+
+\myslide{Email Salutations}
+
+
+
+\myslide{Email Endings}
+
+
+\myslide{Netspeak}
+
+\begin{quote}
+  \blu{Internet specific slang/jargon}
+\end{quote}
+
+\begin{itemize}
+\item Inspired by shared background
+  \begin{itemize}
+  \item \url{<rant>}I can't stand this\url{</rant>}
+  \item I hate\url{^H^H^H^H}love that idea \hfill (\url{^H} is backspace on a vt100)
+  \item lusers (users as seen by Systems Administrators)
+  \item suits
+  \end{itemize}
+\item Inspired by text limitations
+  \begin{itemize}
+  \item \url{GREAT; *great*; \\
+great/;} \texttt{g\ r\ e\ a\ t}
+  \item \url{:-)}\ \ \ \ \ \url{(^_^)} \ \ \ \  \url{(;o;)}\ \ \ \ $\ddot\smile$
+  \end{itemize}
+\item Telcos and then Unicode have added many emoji, somewhat
+  depressing this exuberance
+\end{itemize}
+
+
+
+\myslide{Usenet (asynchronous)}
+
+
+\begin{tabular}{ll}
+  \textbf{Speech like} & \textbf{Text like} \\ \hline
+  \blu{time bound}* &  \blu{space bound} \\
+  \blu{spontaneous}* & \blu{contrived}* \\
+  face-to-face & \blu{visually decontextualized} \\
+  \blu{loosely structured}* & elaborately structured \\
+  \blu{socially interactive}* & \blu{factually communicative} \\  
+  immediately revisable & repeatedly revisable \\
+  prosodically rich & graphically rich  \\
+\end{tabular}
+
+Similar to: Bulletin boards; the WELL; some chat; Mailing Lists
+
+\begin{itemize}
+\item  \texttt{linguist-list}
+\item \texttt{sci.lang.japan} FAQ 
+\\ \url{http://www.sljfaq.org/afaq/afaq.html}
+\end{itemize}
+
+\myslide{Netspeak}
+
+\begin{itemize}
+\item Need to be in-group: 
+  \begin{description}
+  \item[cow orker] Coworker
+  \item[clue] ``You couldn't get a clue during the clue mating season in a field full of horny clues if you smeared your body with clue musk and did the clue mating dance.''
+\\ Edward Flaherty (\url{talk.bizaare})
+  \end{description}
+\item Posting (top/middle/bottom, quoting and trimming)
+\item Appropriate length
+\end{itemize}
+
+\myslide{l33tspeak}
+
+\begin{itemize}
+\item Designed to confuse n00bs
+\item Full of internet memes
+  \begin{itemize}
+  \item ``All your base are belong to us"
+  \item Owned and Pwn3d
+  \end{itemize}
+\item  Pr0n
+\end{itemize}
+
+
+\myslide{\url{alt.fan.warlord}}
+\begin{flushleft}
+  \begin{footnotesize}
+\begin{verbatim}
+__________________________________________________________________________
+|                                                                           |
+|        |                          \ | /                          |        |
+|        |\                          \|/                          /|        |
+|  |XXXXX||>>>>>>>>>>>>>>>>>>>>>>>  ((*))  <<<<<<<<<<<<<<<<<<<<<<<||XXXXX|  |
+|        |/                          /|\                          \|        |
+|        |                          / | \                          |        |
+|                                                                           |
+| Death Star                                                                |
+| War Lord of the West                               Dkline@doc.bmd.trw.com |
+|___________________________________________________________________________|
+ 
+\end{verbatim}
+  \end{footnotesize}
+\end{flushleft}
+
+The original bad signature.
+
+\myslide{\url{alt.fan.warlord}}
+\hspace*{-5mm}\begin{small}
+\begin{verbatim}
+----------------------------- ALT.FAN.WARLORD FORM ----------------------------
+
+YOUR SIGNATURE IS:
+
+___ WIDER THAN 80 COLUMNS LONG OR LONGER. PLEASE ADJUST.
+___ OVER 4 LINES, THE NET STANDARD.
+___ MORE THAN TWICE THE NET STANDARD OF 4 LINES IN SIZE.
+___ FAR LARGER THAN ANY WORTHWHILE COMMENTARY OF WHICH YOU MAY BE CAPABLE.
+
+___ YOU HAVE ___ SNAIL  MAIL ADDRESSES WHICH NO ONE  REALLY USES.
+___ YOU HAVE ___ PHONE  NUMBERS FOR PEOPLE TO USE IN PRANK CALLS.
+___ YOU HAVE ___ BEEPER NUMBERS FOR PEOPLE TO USE IN PRANK CALLS.
+___ YOU HAVE LISTED MORE THAN ONE EMAIL ADDRESS.
+    ARE YOU REALLY EXPECTING PEOPLE TO SEND EMAIL TO YOU IN TRIPLICATE?
+
+YOUR SIGNATURE CONTAINS :
+
+___ RUSH QUOTE.
+___ UGLY BORDER.
+___ LAME LOGIN NAME.
+___ STUPID SELF-QUOTE.
+___ OBNOXIOUS UNREADABLE FONT.
+___ STUPIDLY LARGE DISCLAIMER.
+___ TOO MUCH WHITE SPACE. CAN THIS BE REDUCED TO REACH THE 4 LINE LIMIT?
+___ LAME ASCII GRAPHIC OF (Choose all that apply):
+    __ AMIGA CHECK
+    __ AUSTRALIA
+    __ BICYCLE
+    __ COMPANY LOGO
+    __ SWORD
+    __ USS ENTERPRISE
+
+COMMENTS:
+
+___ YOU HAVE GREATLY MISUNDERSTOOD THE PURPOSE OF A SIGNATURE FILE.
+___ YOU HAVE GREATLY MISUNDERSTOOD THE PURPOSE OF ALT.FAN.WARLORD
+___ YOU HAVE GREATLY MISUNDERSTOOD THE PURPOSE OF USENET.
+___ YOU MUST HAVE SPENT YOUR ENTIRE LIFE IN A SKINNER BOX 
+    TO BE THIS CLUELESS.
+
+___ THIS HAS BEEN WARLORDED BEFORE.
+\end{verbatim}
+\end{small}
+
+
+\myslide{A different approach}
+\MyLogo{The Shame}
+\begin{center}
+  \includegraphics[width=\textwidth]{../pics/sig_ntu}
+  \includegraphics[width=\textwidth]{../pics/disclaimer}
+\end{center}
+
+{\small The corporate email signature was launched on 6 October 2009 and is
+designed to project a distinct NTU identity and to achieve consistency
+in our communications, in particular with external parties. The email
+signature will also present essential information, such as contact
+details, for the convenience of those with whom the staff is
+communicating.}
+
+\begin{itemize}
+\item What purpose does the disclaimer serve?
+\item Do we need all the contact info all the time? and the NTU logo?
+\end{itemize}
+
+
+\myslide{Chat (synchronous)}
+
+
+\begin{tabular}{ll}
+  \textbf{Speech like} & \textbf{Text like} \\ \hline
+  \blu{time bound}* &  \blu{space bound} \\
+  \blu{spontaneous}* & contrived \\
+  face-to-face & \blu{visually decontextualized} \\
+  \blu{loosely structured}* & elaborately structured \\
+  \blu{socially interactive}* & \blu{factually communicative} \\  
+  immediately revisable & repeatedly revisable \\
+  prosodically rich & graphically rich  \\
+\end{tabular}
+
+IRC; MSN;
+
+\myslide{Netspeak}
+
+\begin{itemize}
+\item Need to use few key strokes: 
+  \begin{description}
+  \item [imho] In My Humble Opinion
+  \item[rtfm] Read The Fine Manual
+  \item[brb] Be Right Back
+  \item[btw] By The Way
+  \item[cya] See You
+  \end{description}
+\item Lower case
+\item Lack of apostrophes (they are hard on phone keyboards)
+\end{itemize}
+
+\begin{itemize}
+  \item \emp{Text input is slower than speech}
+  \item Especially on a ten key (although it is getting faster)
+\end{itemize}
+
+\myslide{Very weird discourse}
+
+\begin{itemize}
+\item Multiple Participants
+\item All can be heard/read
+\item Often lagging and overlapping
+  \begin{itemize}
+  \item Typically break down into several sub-conversations
+  \end{itemize}
+\end{itemize}
+
+\myslide{Blogs}
+
+
+\begin{tabular}{ll}
+  \textbf{Speech like} & \textbf{Text like} \\ \hline
+  time bound &  \blu{space bound} \\
+  \blu{spontaneous}* & \blu{contrived}* \\
+  face-to-face & \blu{visually decontextualized} \\
+  \blu{loosely structured}* & \blu{elaborately structured}* \\
+  \blu{socially interactive}$^{comments}$ & \blu{factually communicative} \\  
+  immediately revisable & \blu{repeatedly revisable}* \\
+  prosodically rich & graphically rich * \\
+\end{tabular}
+
+Combination of diary and broadsheet
+
+
+\myslide{Moderation}
+\MyLogo{\url{http://nielsenhayden.com/makinglight/archives/006036.html}}
+
+Teresa Nielsen Hayden (2005) \textit{Virtual panel participation}
+
+
+Some things I know about moderating conversations in virtual space:
+
+\begin{enumerate}
+\item There can be no ongoing discourse without some degree of moderation, if only to kill off the hardcore trolls. It takes rather more moderation than that to create a complex, nuanced, civil discourse. If you want that to happen, you have to give of yourself. Providing the space but not tending the conversation is like expecting that your front yard will automatically turn itself into a garden.
+
+\item Once you have a well-established online conversation space, with enough regulars to explain the local mores to newcomers, they'll do a lot of the policing themselves.
+\item You own the space. You host the conversation. You don't own the community. Respect their needs. For instance, if you're going away for a while, don't shut down your comment area. Give them an open thread to play with, so they'll still be there when you get back.
+\item Message persistence rewards people who write good comments.
+
+\item Over-specific rules are an invitation to people who get off on gaming the system.
+\item  Civil speech and impassioned speech are not opposed and mutually exclusive sets. Being interesting trumps any amount of conventional politeness.
+\item Things to cherish: Your regulars. A sense of community. Real expertise. Genuine engagement with the subject under discussion. Outstanding performances. Helping others. Cooperation in maintenance of a good conversation. Taking the time to teach newbies the ropes.
+All these things should be rewarded with your attention and praise. And if you get a particularly good comment, consider adding it to the original post.
+\item Grant more lenience to participants who are only part-time jerks, as long as they're valuable the rest of the time.
+\item If you judge that a post is offensive, upsetting, or just plain unpleasant, it's important to get rid of it, or at least make it hard to read. Do it as quickly as possible. There's no more useless advice than to tell people to just ignore such things. We can't. We automatically read what falls under our eyes.
+\item  Another important rule: You can let one jeering, unpleasant jerk hang around for a while, but the minute you get two or more of them egging each other on, they both have to go, and all their recent messages with them. There are others like them prowling the net, looking for just that kind of situation. More of them will turn up, and they'll encourage each other to behave more and more outrageously. Kill them quickly and have no regrets.
+\item  You can't automate intelligence. In theory, systems like Slashdot's ought to work better than they do. Maintaining a conversation is a task for human beings.
+\item Disemvowelling works. Consider it.
+%%% fixe me: add example
+\item If someone you've disemvowelled comes back and behaves, forgive and forget their earlier gaffes. You're acting in the service of civility, not abstract justice.
+\end{enumerate}
+
+
+\myslide{Disemvowelling}
+\footnote{\url{http://content.time.com/time/specials/packages/article/0,28804,1852747_1854195_1854185,00.html}}
+\begin{itemize}
+\item Removing the vowels from an (obnoxious) comment
+\item On 30 October 2008, TIME magazine listed disemvoweling as \#42
+  of their "Top 50 Inventions of 2008". %[11] [edit] Criticism
+\item Xeni Jardin, co-editor of Boing Boing, said of the practice, "the dialogue stays, but the misanthrope looks ridiculous, and the emotional sting is neutralized."
+\item Boing Boing producers claim that disemvoweling sends a clear message to internet forums as to types of behavior that are unacceptable.
+\item Try it here:
+  \url{http://textmechanic.com/Disemvowel-Tool.html}
+\end{itemize}
+
+\myslide{Licensed to disemvowel}
+\begin{center}
+  \includegraphics[height=\textheight]{../pics/moderate}
+\end{center}
+
+\myslide{Denizens of the Net}
+
+\begin{description}
+\item[Troll]: someone who posts inflammatory, extraneous, or off-topic
+  messages in an online community with the primary intent of provoking
+  other users into an emotional response or of otherwise disrupting
+  normal on-topic discussion
+
+\item[Sock Puppet]: an online identity used for purposes of deception
+  within an online community, for example, a fake online identity to
+  praise, defend or create the illusion of support for one's self,
+  allies or company.
+\end{description}
+
+
+
+
+\myslide{Acknowledgments}
+
+\begin{itemize}
+\item Much Data taken from \citet[ch 2,4--5,8]{Crystal:2006}
+\end{itemize}
+
+
+\myslide{References}
+\bibliography{abb,mtg,nlp,ling}
+
+
+\end{document}
+
+1. 3- FACETED CLASSIFICATION Approach to the organization of information with origins in the field of library and information science. Intended to highlight those features of CMC that most directly affect users' linguistic choices.
+12. Facets = categories or concepts of the same inherent type. A faceted scheme has several facets and each facet may have several terms or possible values (E.g. Wine.)
+13. It's an analytico-synthetic method: a subject domain is firt analyzed into component facets, and relevant facets are then synthesized into combinations to characterise items of interest. The facets don't have to be ordered, nor be of the same type, although they should be clearly defined and mutually exclusive. Its purpose is not to facilitate information storage and retrieval, but to facilitate data selection and analysis in CMD research.
+14. 4- THE FACETED CLASSIFICATION SCHEME FOR CMD Overview of the Faceted Classification Scheme CMD is subject to two basic types of influence medium situation (technological) (social) open ended, unordered, non-hierarchical relationship.
+15. Technological features of CMC systems The inclusion of a set of technological factors in the approach does not assume that the computer medium exercises a determining influence on communication in all cases, although each factor has been observed to affect communication in at least some instances. One reason for including medium factors as a separate list is to attempt to discover under what circumstances specific system features affect communication and in what ways.
+16. Social factors The inclusion of a set of situation factors assumes that context can shape communication in significant ways, although it does not assume that any given factor is always influential. Categories may or may not interact, just as there may (or may not) be patterned correspondences between medium and situation factors.
+17. The categories are realized by more than one possible value. The categories may be heterogenous, with values that are binary, scalar, or a list of discrete items. The scheme may be applied to data samples of almost any size, although not all categories are relevant for very small samples.
+18. Medium Factors M1: Synchronicity of articipation Asynchronous systems: users don't have to be logged on at the same time to send and receive messages (email.) Synchronous systems: sender and addressee must be logged on symultaneously (real-time chat.)
+19. M2: Message transmission 1-way: message by message; the receiver does not have any indication that the sender is composing a message until it is sent and received, so the receiver can't give simultaneous feedback. 2-way: character by character; the sender and the receiver can see the message as it is produced, so the receiver can give simultaneous feedback. It can alter the structure of turn taking.
+20. M3: Persistence of transcript How long messages remain on the system after they are received (email, discussion lists, etc. vs. chat systems.) Greater persistence of CMD heightens meta-linguistic awareness: it allows users to reflect on their communication and keep track of and participate in multiple conversational threads.
+21. M4: Size of message buffer It's the number of characters the system allows in a single message (email vs. chat, mobile phones.) Smaller buffers mean shorter messages and different discourse organizational strategies, like abbreviated language.
+22. M5: Channels of communication Visual channels: text + graphics/video The presence of video images affected the amount and gender distribution of discourse on an educational website. Audio channels: videoconferencing systems (skype)
+23. M6: Anonymous messaging (chats, forums) M7: Private messaging (chats) M8: Filtering (messages) M9: Quoting (emails) It is possible for users to engage in these behaviors without any special technical means, but when such means are available, they facilitate the behaviors, making them more likely to happen.
+24. M10: Message format It determines the order in which messages appear, what information is appended automatically to each and how it is visually presented, and what happens when the viewing window becomes filled with messages (chat, forums vs. blogs vs. wikis.)
+25. Situation Factors S1: Participation structure One-to-one, one-to-many, many-to-one Public/private Degree of anonymity/pseudonymity Group size; number of active participants Amount, rate, and balance of participation S2: Participant characteristics Demographics: gender, age, occupation, etc. Proficiency: with language/computers/CMD Experience: with addressee/group/topic Role/status: in real life; of online personae Pre-existing sociocultural knowledge and interactional norms Attitudes, beliefs, ideologies and motivations
+26. S3: Purpose Of group, e.g., professional, social, fantasy/role-playing, aesthetic, experimental Goal of interaction, e.g., get information, negotiate consensus, develop professional/social relationships, impress/entertain oters, have fun S4: Topic or theme Of group, e.g., politics, linguistics, feminism, soap operas, sex, science fiction, South Asian culture, pub Of exchanges, e.g., the war in Iraq, the project budget, gay sex, vacation plans, personal information S5: Tone Serious/playful, formal/casual, contentious/friendly, cooperative/sarcastic, etc.
+27. S6: Activity Activities are discursive means of pursuing interactional goals. E.g., “debate” as a means of impressing others with one's intellectual insight. S7: Norms Of organization Of social appropriateness Of language
+28. S8: Code Language, language variety Font/writing system
+29. Medium factors may correlate with situation factors In principle the 8 situation dimensions are independent of one another. In practice, they tend to combine in predictable ways. 
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% End: 

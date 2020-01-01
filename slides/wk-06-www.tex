@@ -1,0 +1,572 @@
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
+
+\input{headx.tex}
+
+\header{Lecture 6}{The World Wide Web and HTML}
+
+\usepackage{bibentry}
+
+
+\begin{document}
+
+\bibliographystyle{apalike}
+
+\nobibliography{abb,mtg,nlp,ling}
+
+\maketitle
+
+%\input{schedule}
+
+
+
+\myslide{Revision of Collaboration and Wikis}
+\MyLogo{}
+\begin{itemize}
+\item Version Control Systems
+\item Wikipedia
+\item Licensing and Ownership 
+\end{itemize}
+
+\myslide{Version Control Systems}
+
+\begin{itemize}
+\item Versioning file systems
+  \begin{itemize}
+  \item  every time a file is opened, a new copy is stored
+  \end{itemize}
+\item CVS, Subversion, Git
+  \begin{itemize}
+  \item changes to a collection of files are tracked
+  \item simultaneous changes are merged
+  \end{itemize}
+\item Revision Tracking
+  \begin{itemize}
+  \item Revisions are stored within a file
+  \end{itemize}
+\item Authorship in shared writing
+\end{itemize}
+
+\myslide{Wikipedia}
+\begin{itemize}
+\item  The core aim of the Wikimedia Foundation, is to get a free
+  encyclopedia to every single person on the planet. (Jimmy Wales)
+\item Wikipedia makes it easy to share your knowledge
+ \\ people like to do this
+\item Most edits are done by insiders!
+\item Most content is added by outsiders!
+\item Content comparable to Britannica
+\end{itemize}
+
+\myslide{The five pillars of Wikipedia}
+\MyLogo{\url{Wikipedia:Five pillars}}
+\begin{enumerate}
+\item Wikipedia is an online encyclopedia
+\item Wikipedia has a neutral point of view.
+\item Wikipedia is free content
+\item Wikipedians should interact in a respectful and civil manner
+\item Wikipedia does not have firm rules
+\end{enumerate}
+
+\myslide{Licenses and Ownership}
+
+\begin{itemize}
+\item Copyright
+\item Copyleft
+\item Creative Commons
+\end{itemize}
+
+\myslide{What is a good article?}
+\MyLogo{\url{Wikipedia:Good_article_criteria}}
+
+\begin{enumerate}
+\item Well-written
+\item Factually accurate and verifiable
+\item Broad in its coverage
+\item Neutral
+\item Stable
+\item Illustrated, if possible, by images
+\end{enumerate}
+
+
+\section{The World Wide Web \\ and HTML}
+\MyLogo{}
+
+\myslide{Overview}
+\begin{itemize}
+\item The Internet 
+\item The structure of Markup
+\item The structure of the Web
+\item The future of the Web
+\item Linguistic features of the web
+\end{itemize}
+
+\myslide{The Internet}
+
+\begin{itemize}
+\item global system of interconnected computer networks that use the standard Internet Protocol Suite (TCP/IP)
+\item Carries several services
+  \begin{itemize}
+  \item HTTP (Hyper Text Transfer Protocol) --- The Web
+  \item Email
+  \item VoIP (Voice over IP) --- Telephony/Skype
+  \item FTP, \ldots (File Transfer)
+  \item Streaming Media --- music, video
+  \item Instant Messaging
+  \end{itemize}
+\end{itemize}
+
+\myslide{Map of online communities (2007)}
+\MyLogo{\url{http://xkcd.com/256/}}
+\begin{center}
+  \includegraphics[height=\textheight]{../pics/online_communities}
+\end{center}
+
+\myslide{Map of online communities (2010)}
+\MyLogo{\url{http://xkcd.com/802/}}
+\begin{center}
+  \includegraphics[height=\textheight]{../pics/online_communities_2}
+\end{center}
+%%% FIXME add date, newer map
+
+\myslide{Growth of the Internet}
+\begin{center}
+  \includegraphics[width=\textwidth]{../pics/Internet_users_per_100_inhabitants_ITU}
+\end{center}
+\MyLogo{\url{https://commons.wikimedia.org/wiki/File:Internet_users_per_100_inhabitants_ITU.svg}}
+
+\section{Markup\\ formatting information}
+
+\myslide{Why Markup?}
+\MyLogo{}
+
+\begin{itemize}
+\item \emp{Reduce Ambiguity}
+  \begin{itemize}
+  \item Need to make meaning explicit
+  \end{itemize}
+\item Traditionally this is done by annotating text in some way
+\end{itemize}
+
+\myslide{Markup Languages}
+
+\begin{itemize}
+\item Annotation on how to print is called \blu{markup}
+  \begin{itemize}
+  \item  underlining to indicate boldface
+  \item special symbols for passages to be omitted
+  \item special symbols for printed in a particular font
+  \end{itemize}
+\item This existed before computers
+  \begin{itemize}
+  \item Editors would markup hand-written manuscripts
+  \item \ldots and pass them to type setters
+  \item \ldots who would prepare the manuscript for printing
+  \end{itemize}
+\end{itemize}
+
+\myslide{Printers' Markup}
+
+\includegraphics[trim= 0mm 188mm 0mm 0mm, clip=true, width=\textwidth]{../pics/proofreaders-marks.eps}
+
+
+\myslide{Early Computer Markup (troff)}
+
+
+\framebox{
+  \begin{minipage}{0.5\linewidth}
+\begin{flushleft}
+  {\large \textbf{Headline}} \\
+  and some text
+\end{flushleft}
+\end{minipage}}
+
+\begin{verbatim}
+.ps 12                         % point size 12
+.ft B                          % font type Bold
+Headline
+.ps 10                         % point size 10
+.ft R                          % font type Roman
+and some text.
+\end{verbatim} 
+
+\begin{itemize}
+\item   Marked up with \texttt{troff}
+\item  Postscript and PDF (Portable Document Format) are similar
+\end{itemize}
+
+
+\myslide{Visual Markup vs Logical Markup}
+
+\begin{itemize}
+\item \txx{Visual Markup} (Presentational)
+  \begin{itemize}
+  \item What you see is what you get (\blu{WYSIWYG})
+  \item Equivalent of printers' markup
+  \item Shows what things look like
+  \end{itemize}
+\item \txx{Logical Markup} (Structural)
+  \begin{itemize}
+  \item Shows the structure and meaning
+  \item Can be mapped to visual markup
+  \item Less flexible than visual markup
+  \item More adaptable (and reusable)
+  \end{itemize}
+\end{itemize}
+
+
+\myslide{Standard Generalize Markup Language: SGML}
+
+\begin{itemize}
+\item ISO standard based on IBM's GML
+\item Attempt to make markup independent of processor
+  \begin{itemize}
+  \item Important for archiving information
+  \end{itemize}
+\item Emphasis on logical markup\item Popularized the use of \url{<tag></tag>} notation
+  \begin{itemize}
+  \item and entities \url{&lt;} \url{&gt;} when you need an $< >$
+  \end{itemize}
+\item Split the document into: Declaration, Prolog, Documentation
+\end{itemize}
+
+
+
+\myslide{Hyper Text Markup Language: HTML}
+
+\begin{itemize}
+\item Markup Language for web pages
+\item An extension of SGML
+\item Combines logical and visual markup
+\item Also allows hyperlinks (linking and anchoring)
+\item Created by Tim Berners-Lee at CERN (1989)
+  \begin{itemize}
+  \item to make physics papers and documentation more accessible
+  \end{itemize}
+\end{itemize}
+
+
+
+\myslide{HTML example}
+
+
+\framebox{
+  \begin{minipage}{0.5\linewidth}
+\begin{flushleft}
+  {\large \textbf{Headline}} \\
+  and some text
+\end{flushleft}
+\end{minipage}}
+
+\begin{itemize}
+\item Logical
+\begin{verbatim}
+<h1>Headline</h1>
+<p>and some text
+\end{verbatim}
+
+\item Visual
+\begin{verbatim}
+<font size="3"><b>Headline</b></font>
+<br>and some text
+\end{verbatim}
+\end{itemize}
+
+\myslide{Logical allows various styles}
+\vspace*{1ex}
+\framebox{
+  \begin{minipage}{0.5\linewidth}
+\begin{flushleft}
+  {\large \blu{Headline}} \\[1.5ex]
+  and some text
+\end{flushleft}
+\end{minipage}}
+
+
+\begin{verbatim}
+<style>
+H1 {
+           font-size:24px;
+           color:blue;
+           margin-top:10px;
+           margin-bottom:15px;
+      }
+</style>
+\end{verbatim}
+
+\begin{itemize}\addtolength{\itemsep}{-1ex}
+\item This can be done using CSS (Cascading Style Sheets)
+\item Separate Logical and Visual Structure
+\end{itemize}
+
+\myslide{Benefits of Logical Tags}
+
+\begin{itemize}
+\item Can transform things easily
+  \begin{itemize}
+  \item No bold for Japanese and Chinese (just use size)
+  \item Can adapt to other modalities (speech)
+  \end{itemize}
+\item Logical form useful for other tasks
+  \begin{itemize}
+  \item Summarization
+    \begin{itemize}
+    \item  Just show \texttt{<h1> \ldots\ <h3>}
+    \end{itemize}
+  \item Translation
+    \begin{itemize}
+    \item Headers are noun phrases, not sentences
+    \end{itemize}
+  \end{itemize}
+\item Robustness: you can read the source directly
+\end{itemize}
+
+
+\myslide{But still there is ambiguity!}
+
+\begin{itemize}
+\item Tags on one site may not mean the same thing on another site
+\item Huge amount of information
+  \begin{itemize}
+  \item Looking for \grn{Eric Miller} may get the wrong one!
+  \item Looking for \grn{NTU} gets
+    \begin{itemize}
+    \item Nanyang Technological University
+    \item National Taxpayers Union
+    \item National Taiwan University
+    \end{itemize}
+  \end{itemize}
+\item What can we do?
+\\ Semantic Web (week 10)
+\end{itemize}
+
+\myslide{Hypertext}
+
+\begin{itemize}
+\item HTML crucially adds \blu{hyperlinks}
+  \begin{itemize}
+  \item these extend text in a new way
+  \item references that you can immediately access
+  \end{itemize}
+\item \texttt{<href="http://somewhere.on.the.web">link me</a>}
+\item \texttt{<img src="http://somewhere.on.the.web/pic.jpg">}
+\item Immediately accessible references are qualitatively different
+\end{itemize}
+
+\myslide{HTML example}
+\begin{verbatim}
+<!doctype html>
+<html>
+  <head>
+    <title>Hello HTML</title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+   <p>Oh well, <span lang="fr">c'est la vie</span>, 
+      as they say in France.</p>
+   <abbr id="anId" class="jargon" style="color:blue;" 
+         title="Hypertext Markup Language">HTML</abbr>
+  </body>
+</html>
+\end{verbatim}
+
+
+\myslide{How should you hyperlink?}
+\MyLogo{Inspired by \citet[p 28]{Crystal:2011}}
+
+\begin{itemize}
+\item Pick a page
+  \begin{itemize}
+  \item This course page
+  \item LMS research page
+  \item Wiki front page
+  \item Your choice
+  \end{itemize}
+\item Discuss whether you think there are enough links or too many or
+  not enough?  And are they linking to the best targets?
+\item You may wish to look at the \textit{Wikipedia:Manual of Style/Linking}
+\\ \url{<https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Linking>}
+\end{itemize}
+
+
+\myslide{The Structure of the Web}
+\MyLogo{\url{Wikipedia:World Wide Web}}
+
+\begin{itemize}
+\item 550 billion documents on the Web (2001)
+  \\ mostly in the invisible Web, or deep Web
+\item 11.5 billion indexable web pages (2005)
+\item 25.21 billion indexable web pages (2009)
+\item 109.5 million websites (2009)
+\end{itemize}
+
+\myslide{The Deep Web}
+\begin{description}
+\item [Dynamic content] dynamic pages which are returned in response to a submitted query or accessed only through a form
+\item [Unlinked content] pages which are not linked to by other pages (but clicking links them)
+\item [Private Web] sites that require registration and login
+  \com{Edventure, NTULearn}
+\item [Contextual Web] pages with content varying for different access contexts (e.g., ranges of client IP addresses or previous navigation sequence).
+\item [Limited access content] sites that limit access to their pages
+  in a technical way (e.g., using the Robots Exclusion Standard)
+\item [Scripted content] pages that are only accessible through links produced by JavaScript as well as content dynamically downloaded from Web servers via Flash or Ajax solutions.
+\item [Non-HTML/text content] textual content encoded in multimedia (image or video) files or specific file formats not handled by search engines.
+\end{description}
+
+These pages all include data that search engines cannot find!
+
+\myslide{robots.txt}
+\MyLogo{\url{http://www.robotstxt.org}}
+\begin{itemize}
+\item A \blu{Robot} (Web Crawler, or Spiders) is a program that
+  automatically traverses the Web's hypertext structure by retrieving
+  a document, and recursively retrieving all documents that are
+  referenced. Robots are used for:
+  \begin{itemize}
+  \item Indexing and \textit{What's New} monitoring
+  \item HTML and Link validation
+  \item Mirroring and back up
+  \end{itemize}
+\item A website can explicitly tell robots where they can and cannot go
+  \begin{itemize}
+  \item Compliance is voluntary, but followed by most robots
+  \end{itemize}
+\item You can \blu{Allow} and \blu{Disallow} whole directories, or individual pages
+\item You can \blu{Allow} and \blu{Disallow} individual user-agents
+  (such as \texttt{Google})
+\end{itemize}
+
+
+\myslide{The Internet and Language Diversity}
+%%% FIXME add more from Crystal
+\MyLogo{}
+\begin{center}
+  \includegraphics[height=\textheight]{../pics/web-users.eps}
+\end{center}
+
+\myslide{Distribution of languages among Internet users }
+\MyLogo{From Global Reach (2006) cited in Gerrand (2007)}
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../pics/gerrand.fig5.jpg}
+\end{center}
+
+\myslide{Internet users by language, February 2005}
+\MyLogo{Source: OECD (2006)  cited in Gerrand (2007)} 
+\begin{center}
+  \includegraphics[height=0.9\textheight]{../pics/gerrand.fig6b.jpg}
+\end{center}
+
+
+\myslide{Language of e-commerce, February 2005}
+
+\begin{center}
+  \includegraphics[height=0.9\textheight]{../pics/gerrand.fig6a.jpg}
+\end{center}
+
+\MyLogo{Source: OECD (2006) references to secure servers by language  cited in Gerrand (2007)} 
+
+
+
+\myslide{Percentage of Web sites by language (2014)}
+\MyLogo{\url{https://en.wikipedia.org/wiki/Languages_used_on_the_Internet}}
+\includegraphics[height=0.9\textheight]{../pics/WebsiteContentLanguages}
+
+\myslide{Percentage of Web users by language (2014)}
+\MyLogo{\url{https://en.wikipedia.org/wiki/Languages_used_on_the_Internet}}
+\includegraphics[height=0.9\textheight]{../pics/WebsiteUserLanguageBars}
+
+\myslide{Gradually  Changing}
+\MyLogo{\url{https://www.internetworldstats.com/stats7.htm}}
+\includegraphics[height=\textheight]{../pics/languages2017Q4.png}
+
+
+\myslide{The Internet and Language Diversity}
+\MyLogo{}
+\begin{itemize}
+\item Major languages will survive (not just English)
+\item \textbf{Sarnoff's Law:} the value of a broadcast network is
+  proportional to the number of viewers ($n$)
+\item \textbf{Metcalfe's Law:} the value of a telecommunications
+    network is proportional to the square of the number of connected
+    users of the system ($n^2$)
+    \begin{itemize}
+    \item[$\Rightarrow$] languages with more pages will become even more valuable
+    \end{itemize}
+\item Minor languages probably won't survive
+\end{itemize}
+
+
+
+
+\myslide{Top ten Wikipedias}
+\MyLogo{\url{http://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia}}
+\begin{center}
+  \includegraphics[height=0.8\textheight]{../pics/TopTenWikipediasGraph}
+\end{center}
+ See also \url{http://meta.wikimedia.org/wiki/List_of_Wikipedias}
+\\ Wikipedias in 272 languages: only 96 with more than 10,000 pages
+
+\myslide{The next 5,000 days of the Web}
+\MyLogo{}
+\begin{itemize}
+\item Kevin Kelly on the next 5,000 days of the web (20min)
+\item \url{http://www.ted.com/talks/lang/eng/kevin_kelly_on_the_next_5_000_days_of_the_web.html}
+\item The impossible has become possible
+\item The web is a single machine
+  \begin{itemize}
+  \item Embodiment
+  \item Re-structuring
+  \item Co-dependence
+  \end{itemize}
+
+\end{itemize}
+
+\myslide{Linguistic features of the web}
+
+\begin{itemize}
+\item Much/most text is just the same
+\item Un-edited
+\item Accessible in great volume (and many languages)
+\item Editable --- Wikis, comments, tweets
+\item Multi-media
+\end{itemize}
+
+\myslide{Conclusion}
+
+\begin{itemize}
+\item The web is changing what humanity can do with language
+\item It is not clear if it is changing what individual humans do
+\bigskip
+\item \href{https://en.wikipedia.org/wiki/Wikipedia:Tutorial}{Make sure you go through the wikipedia tutorial}
+\end{itemize}
+
+
+
+\myslide{References}
+
+\begin{itemize}
+\item \bibentry{Crystal:2011}
+\item Peter Gerrand (2007) Estimating linguistic diversity on the
+  Internet: A taxonomy to avoid pitfalls and
+  paradoxes. \textit{Journal of Computer-Mediated Communication},
+  12(4), article
+  8. \url{http://jcmc.indiana.edu/vol12/issue4/gerrand.html}
+\item Global Reach. (2006). Global Internet Statistics (by
+  Language). Retrieved October 11, 2006 from
+  \url{http://www.global-reach.biz/globstats/index.php3}
+\end{itemize}
+
+%% 
+%% Future
+%%
+\end{document}
+
+
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% End: 
