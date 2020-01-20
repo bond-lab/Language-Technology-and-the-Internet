@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
-year='2014'
+year='2020'
 
 f = open(year + "-survey-edited.tsv")
 out = open(year + "-hg2052-survey.html",'w')
@@ -12,17 +12,19 @@ out = open(year + "-hg2052-survey.html",'w')
 lines=f.readlines()
 
 atr=lines[0].strip().split('\t')
-
+#print(atr)
 timea=dd(list)
 timeb=dd(list)
 comments=dd(list)
 
 
-
+students = 0
 for l in lines[2:]:  # skip first line and my entry
+    if l.startswith('#'):
+        continue
     line=l.strip().split('\t')
     for (at,v) in zip(atr,line):
-        #print a,v
+        #print (at,v)
         if at in ('Timestamp','Name (enough so I can identify your participation)') \
                 or not v:
             continue
@@ -30,13 +32,13 @@ for l in lines[2:]:  # skip first line and my entry
         m2 = r'(\d+)/(\d+)'
         m3 = r'(\d+)\s*\(([^)]+)\)'
         m4 = r'(\d+)/(\d+)\s*\(([^)]+)\)'
-        #print re.findall(m3,v.strip())
+        #print (re.findall(m3,v.strip()))
         if re.findall(m4,v.strip()):
             for (a,b,c) in re.findall(m4,v.strip()):
                 timea[at].append(int(a))
                 timeb[at].append(int(b))
                 comments[at].append(c)
-#                print  (a,b,c)
+        #        print  (a,b,c)
         elif re.findall(m3,v.strip()):
             for (a,c) in re.findall(m3,v.strip()):
                 timea[at].append(int(a))
@@ -52,8 +54,9 @@ for l in lines[2:]:  # skip first line and my entry
                 timea[at].append(int(a))
         else:
              timea[at].append(0)
-             timea[b].append(0)
-        #     print ("""can't parse %s <<%s>>""" % (v, a))
+             #timea[b].append(0)
+             print ("""can't parse %s <<%s>> %s""" % (v, at, line))
+    students += 1
 
 # for a in atr:
 #     if a in ('Timestamp','Name (enough so I can identify your participation)'):
@@ -73,7 +76,7 @@ aidem = media[::-1]
 ###  Results for all people
 ###
 
-
+print (atr[2:], media)
 
 y_pos = np.arange(len(aidem))
 amean = tuple([numpy.mean(timea[a]) for a in  aidem])
@@ -87,7 +90,7 @@ plt.yticks(y_pos, ["%s (%d)" % (a, len(timea[a])) for a in aidem ])
 plt.yticks()
 plt.xlabel('Time using Medium (minutes)')
 plt.title("""Language use over various medium in one day (%d students)
-Averaged over all students""" % len(lines[2:]))
+Averaged over all students""" % students)
 # ax2 = ax.twinx()
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
@@ -98,7 +101,7 @@ plt.savefig(year+'-all.png', bbox_inches='tight')
 # data = [timea[a] for a in aidem]
 # #fig1, ax1 = plt.subplots()
 # plt.title('''Language use over various medium in one day ({} students) 
-# Averaged over all students'''.format(len(lines[2:])))
+# Averaged over all students'''.format(students))
 # plt.yticks(y_pos,aidem)
 # plt.yticks()
 # plt.boxplot(data, vert=False )
@@ -118,7 +121,7 @@ plt.yticks(y_pos, ["%s (%d)" % (a, len(timeb[a])) for a in aidem ])
 plt.yticks()
 plt.xlabel('Time using Medium (minutes)')
 plt.title("""Language use over various medium in one day (%d students)
-Averaged over all students""" % len(lines[2:]))
+Averaged over all students""" % students)
 # ax2 = ax.twinx()
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
@@ -141,7 +144,7 @@ plt.yticks(y_pos, ["%s (%d)" % (a, len(timea[a])) for a in aidem ])
 plt.yticks()
 plt.xlabel('Time using Medium (minutes)')
 plt.title("""Language use over various medium in one day (%d students)
-Just for those students who used the Media""" % len(lines[2:]))
+Just for those students who used the Media""" % students)
 # ax2 = ax.twinx()
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
@@ -160,7 +163,7 @@ plt.yticks(y_pos, ["%s (%d)" % (a, len(timeb[a])) for a in aidem ])
 plt.yticks()
 plt.xlabel('Time using Medium (minutes)')
 plt.title("""Language use over various medium in one day (%d students)
-Just for those students who used the Media""" % len(lines[2:]))
+Just for those students who used the Media""" % students)
 # ax2 = ax.twinx()
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])

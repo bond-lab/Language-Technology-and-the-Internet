@@ -1,8 +1,21 @@
 HG2052 CMC usage survey
 -----------------------
 
-Download from Google form and parse
+Download from Google form (as tsv)
+YEAR-survey-edited.tsv
 
-HG2052 Usage Survey (Responses) - Form Responses 1.tsv
+edit the YEAR in survey2tab.py
+
+parse
+
+possible edit illformed entries, comment out previous years
+
+parse again :-)
+
+cp  YEAR*.html YEAR*.png ../docs/survey	
+
+link to the index.html
+
+git add docs/index docs/survey
 
 
