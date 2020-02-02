@@ -29,6 +29,13 @@
  }
 }
 
+ %% must load before bidi
+\usepackage[xetex]{xcolor} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\usepackage{rtrees,qtree}
+\newcommand{\lf}[1]{\br{#1}{}}
+
 
 %%
 %% Multilingual Stuff
@@ -52,7 +59,8 @@
 %\clearpage
 %\setCJKmainfont{AR PL SungtiL GB}
 
-\usepackage[xetex]{xcolor}
+%\newfontfamily\arabicfont[Script=Arabic]{Scheherazade}
+
 \usepackage[xetex]{graphicx}
 \newcommand{\blu}[1]{\textcolor{blue}{#1}}
 \newcommand{\grn}[1]{\textcolor{green}{#1}}
@@ -80,7 +88,6 @@
 \newcommand{\nent}{\ensuremath{\not\Rightarrow}\xspace}
 \newcommand{\tot}{\ensuremath{\leftrightarrow}\xspace}
 \usepackage{url}
-\usepackage[hidelinks]{hyperref}
 \hypersetup{
      colorlinks,
      linkcolor={blue!50!black},
@@ -141,7 +148,6 @@
 %%%
 %%% Bibliography
 %%%
-\usepackage{natbib}
 %\usepackage{url}
 \usepackage{bibentry}
 
@@ -152,12 +158,10 @@
 
 
 
-\usepackage{rtrees,qtree}
-\renewcommand{\lf}[1]{\br{#1}{}}
 \usepackage{avm}
 %\avmoptions{topleft,center}
 \newcommand{\ft}[1]{\textsc{#1}}
-\newcommand{\val}[1]{\textit{#1}}
+%\newcommand{\val}[1]{\textit{#1}}
 \newcommand{\typ}[1]{\textit{#1}}
 \avmfont{\sc}
 %\avmvalfont{\sc}
@@ -179,3 +183,5 @@
 
 \newcommand{\sh}[1]{\href{https://www.arthur-conan-doyle.com/index.php?title=#1}{#1}}
 \newcommand{\SHA}[2]{\href{https://www.arthur-conan-doyle.com/index.php?title=#1}{\textit{#2}}}
+
+
