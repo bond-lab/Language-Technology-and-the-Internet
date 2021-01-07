@@ -6,6 +6,7 @@ slides/*.fls
 slides/*.log
 slides/*.out
 slides/*.pdf
+slides/*xdv
 *~
 */*~
 */*/*~
