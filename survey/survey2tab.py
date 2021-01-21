@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
-year='2020'
+year='2021'
 
 f = open(year + "-survey-edited.tsv")
 out = open(year + "-hg2052-survey.html",'w')
@@ -23,6 +23,8 @@ for l in lines[2:]:  # skip first line and my entry
     if l.startswith('#'):
         continue
     line=l.strip().split('\t')
+    if not year in line[0]: #Only look at current year
+        continue
     for (at,v) in zip(atr,line):
         #print (at,v)
         if at in ('Timestamp','Name (enough so I can identify your participation)') \
@@ -202,4 +204,4 @@ for a in  media:
     if comments[a]:
         print ("""<p><b>{}</b>: {}""".format(a, ", ".join(comments[a])),file=out)
 
-print ("""<hr><p><a href='index.html'>HG2052</a></body></html>""",file=out)
+print ("""<hr><p><a href='../index.html'>HG2052</a></body></html>""",file=out)

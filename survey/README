@@ -2,7 +2,15 @@ HG2052 CMC usage survey
 -----------------------
 
 Download from Google form (as tsv)
+https://docs.google.com/forms/d/e/1FAIpQLSfIpMaldZt0K9UsPp2-Fa8Gk13tjO7lzEq-_PjISeEbTp1c9Q/viewform
+
+click to edit
+click to open in sheets
+export
+
 YEAR-survey-edited.tsv
+
+
 
 edit the YEAR in survey2tab.py
 
