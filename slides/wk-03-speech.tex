@@ -602,75 +602,21 @@ Units can be individual phones, diphones, half-phones, syllables, morphemes, wor
 
 
 \myslide{Speech Synthesis}
-  \begin{itemize}
-  \item \blu{Articulatory Synthesis:} Attempt to model human articulation.
-  \item \blu{Formant Synthesis:} Bypass modeling of human articulation, and model acoustics directly.
-  \item \blu{Concatenative Synthesis:} Synthesize from stored units of actual speech
-  \end{itemize}
-  
 
-\myslide{Human Vocal Apparatus}
-\begin{center}
-  \noindent\includegraphics[height=0.8\textheight]{../pics/Illu01_head_neck.eps}
-\end{center}
+Almost all speech synthesis is now done using deep-learning where 
+neural networks are trained on recorded speech paired with the input text.  
 
-{\small \url{http://en.wikipedia.org/wiki/File:Illu01_head_neck.jpg}}
+\bigskip
 
-\myslide{Articulatory Synthesis}
-\begin{itemize}
-\item Articulatory synthesizers will produce a set of instructions to articulators (larynx, velum, tongue body, tongue tip, lips, jaw)
-  \begin{itemize}
-  \item This will produce a sequence of articulatory configurations
-  \item From acoustic theory one derives the acoustics of each configuration
-  \end{itemize}
-\item   Articulatory synthesis is very hard: 
-  \begin{itemize}
-  \item We do not fully understand how the articulators move
-  \item We do not fully understand how to model the acoustics
-  \end{itemize}
-\end{itemize}
+\noindent\includegraphics[height=0.7\textheight]{../pics/Illustration-of-Deep-Neural-Network-DNN-in-speech-synthesis-system_W640.jpg}
 
-\myslide{Synthesizing Speech}
-\MyLogo{\url{http://www.popsci.com/technology/article/2011-07/moaning-mouth-bot-learns-croon-even-creepier-ever}}
+Image from \citep[Figure 7]{Khanam:Munmun:Ritu:Saha:Mridha:2022}
 
-\includegraphics[height=\textheight]{../pics/mouth.eps} %(IEEE Spectrum)
-  % \myslide{Synthesizing Speech}
+\myslide{Speech Synthesis with Neural Networks}
 
-% \begin{itemize}
-% \item In some sense, TTS really is the reverse process of ASR
-%   \begin{itemize}
-%   \item Since we know what frequencies correspond to which vowels, we can play those frequencies to make it sound like the right vowel.
-%   \item However, sounds are always different (across time, across speakers)
-%   \end{itemize}
-% \item One way to generate speech is to have a database of speech and to use the diphones, i.e., two-sound segments, to generate sounds.
-% \item Diphones help with the context-dependence of sounds
-% \end{itemize}
+\noindent\includegraphics[height=0.9\textheight]{../pics/Overview-of-a-deep-MDN-DMDN-43-The-red-circles-represent-the-input-the-blue-circles_W640.jpg}
 
-\myslide{Formant synthesis}
-\begin{itemize}
-\item Formant synthesizers attempt to model the acoustics directly by means of rules that capture the change of acoustic parameters over time.
-\item This is easier than articulatory synthesis but is still hard
-\end{itemize}
-
-
-\myslide{Concatenative synthesis}
-\begin{itemize}
-\item Record real speech from a single talker
-\item Segment the speech so that we know where the individual sounds are
-\item Either:
-  \begin{itemize}
-  \item Preselect a database of units: diphone, polyphone synthesis
-  \item Select the best unit at runtime: unit-selection synthesis
-    \begin{itemize}
-    \item At synthesis time, appropriate units are selected from the database and concatenated
-      \begin{itemize}
-      \item Some smoothing between units is generally necessary
-      \item Units need to be stretched or compressed to fit within the specified duration
-      \end{itemize}
-    \item Intonation, and amplitude information is added, and the system is sent for synthesis.
-    \end{itemize}
-  \end{itemize}
-\end{itemize}
+Image from \citep[Figure 6]{Khanam:Munmun:Ritu:Saha:Mridha:2022}
 
 \myslide{Prosody of Emotion}
 
@@ -875,6 +821,7 @@ Results of the Media Usage Survey
 \item \bibentry{Crystal:2006}
 \item \bibentry{Herring:2007}
 \item \bibentry{Parkinson:1958}
+\item Speech synthesis diagrams from: \bibentry{Khanam:Munmun:Ritu:Saha:Mridha:2022}
 \end{itemize}
 
 
