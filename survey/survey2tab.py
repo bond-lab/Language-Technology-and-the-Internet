@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
-year='2021'
+year='2023'
+clss='LTI'
 
-f = open(year + "-survey-edited.tsv")
-out = open(year + "-hg2052-survey.html",'w')
+f = open(f"{year}-survey-edited.tsv")
+out = open(f"{year}-{clss}-survey.html",'w')
 
 lines=f.readlines()
 
@@ -97,7 +98,7 @@ Averaged over all students""" % students)
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
 plt.tight_layout()
-plt.savefig(year+'-all.png', bbox_inches='tight')
+plt.savefig(f'{year}-all.png', bbox_inches='tight')
 
 # plt.figure()
 # data = [timea[a] for a in aidem]
@@ -128,7 +129,7 @@ Averaged over all students""" % students)
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
 plt.tight_layout()
-plt.savefig(year+'-allb.png', bbox_inches='tight')
+plt.savefig(f'{year}-allb.png', bbox_inches='tight')
 
 
 
@@ -151,7 +152,7 @@ Just for those students who used the Media""" % students)
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
 plt.tight_layout()
-plt.savefig(year+'-nonzero.png', bbox_inches='tight')
+plt.savefig(f'{year}-nonzero.png', bbox_inches='tight')
 
 
 bmean = tuple([numpy.mean([i for i in timeb[a] if i >0]) for a in  aidem])
@@ -170,38 +171,38 @@ Just for those students who used the Media""" % students)
 # ax2.set_yticks(ax1.get_yticks())
 # ax2.set_yticklabels([len(timea[a]) for a in  aidem])
 plt.tight_layout()
-plt.savefig(year+'-nonzerob.png', bbox_inches='tight')
+plt.savefig(f'{year}-nonzerob.png', bbox_inches='tight')
 
 
 
-print ("""<html><head>
+print (f"""<html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>HG2052: Media Usage Survey {0}</title>
+<title>{clss}: Media Usage Survey {year}</title>
 </head>
 <body>
-<h1>HG2052: Media Usage Survey {0}</h1>
+<h1>{clss}: Media Usage Survey {year}</h1>
 
-One day in the life of HG2052 students in  {0}.
+One day in the life of {clss} students in {year}.
 
 <h2>All Usage</h2>
 <table>
 <tr>
-  <td><img src="{0}-all.png" alt="all"></td>
-  <td><img src="{0}-nonzero.png" alt="non-zero"></td>
+  <td><img src="{year}-all.png" alt="all"></td>
+  <td><img src="{year}-nonzero.png" alt="non-zero"></td>
 </tr>
 </table>
 <h2>Creating</h2>
 <table>
 <tr>
-  <td><img src="{0}-allb.png" alt="all"></td>
-  <td><img src="{0}-nonzerob.png" alt="non-zero"></td>
+  <td><img src="{year}-allb.png" alt="all"></td>
+  <td><img src="{year}-nonzerob.png" alt="non-zero"></td>
 </tr>
 </table>
 
-<h2>Comments</h2>""".format(year),file=out)
+<h2>Comments</h2>""", file=out)
 
 for a in  media:
     if comments[a]:
         print ("""<p><b>{}</b>: {}""".format(a, ", ".join(comments[a])),file=out)
 
-print ("""<hr><p><a href='../index.html'>HG2052</a></body></html>""",file=out)
+print (f"<hr><p><a href='../index.html'>{clss}</a></body></html>",file=out)
