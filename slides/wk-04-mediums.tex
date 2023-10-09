@@ -31,19 +31,32 @@
 \end{itemize}
 
 
-\myslide{How good are the systems?}
+\myslide{How good are the systems in 2020?}
 
-  \begin{tabular}{lrrr}
-    Task & Vocab & WER (\%) & WER  (\%) adapted \\ \hline
-    Digits & 11 & 0.4 & 0.2 \\
-    Dialogue (travel) & 21,000 & 10.9 & --- \\
-    Dictation (WSJ) & 5,000 & 3.9 & 3.0 \\
-    Dictation (WSJ) & 20,000 & 10.0 & 8.6 \\
-    Dialogue (noisy, army) & 3,000 & 42.2 & 31.0 \\
-    Phone Conversations & 4,000 & 41.9 & 31.0 \\
-  \end{tabular}
+\begin{tabular}{lr}
+  English Tasks &  WER\% \\
+  \hline
+LibriSpeech audiobooks 960hour clean  & 1.4 \\
+LibriSpeech audiobooks 960hour other  & 2.6 \\
+Switchboard telephone conversations between strangers & 5.8 \\
+CALLHOME telephone conversations between family & 11.0 \\
+Sociolinguistic interviews, CORAAL (AAL) & 27.0 \\
+CHiMe5 dinner parties with body-worn microphones & 47.9 \\
+CHiMe5 dinner parties with distant microphones & 81.3 \\[2ex]
+Chinese (Mandarin) Tasks &   CER\% \\ \hline
+AISHELL-1 Mandarin read speech corpus & 6.7 \\
+HKUST Mandarin Chinese telephone conversations &  23.5 \\
+\end{tabular}
 
-Results of various DARPA competitions (from Richard Sproat's slides)
+Rough Word Error Rates (WER = \% of words misrecognized) reported
+around 2020 for ASR on various American English and Chinese
+recognition tasks.
+
+Note, the error rate for transcribing
+conversations between humans is much higher; 5.8 to 11\% for the
+Switchboard and CALLHOME corpora.
+\citep[Ch.~16, p4]{Jurafsky:Martin:2023}
+
 
 \myslide{Why is ASR so difficult?}
 \begin{itemize}
@@ -60,33 +73,6 @@ Results of various DARPA competitions (from Richard Sproat's slides)
 \end{itemize}
 
 
-\myslide{Two steps in a TTS system}
-
-\begin{enumerate}
-\item Linguistic Analysis
-  \begin{itemize}
-  \item Sentence Segmentation
-  \item Abbreviations: \eng{Dr Smith lives on Nanyang Dr. He is \ldots}
-  \item Word Segmentation: 
-    \begin{itemize}
-    \item 森山 前 日銀 総裁 \jpn{Moriyama zen Nichigin Sousai}
-    \item[\Bad]  森山 前日 銀 総裁　\jpn{Moriyama zennichi gin Sousai}
-      \end{itemize}
-    \end{itemize}
-\item Speech Synthesis
-  \begin{itemize}
-  \item Find the pronunciation
-  \item Generate sounds
-  \item Add intonation
-  \end{itemize}
-\end{enumerate}
-
-\myslide{Speech Synthesis}
-  \begin{itemize}
-  \item \blu{Articulatory Synthesis:} Attempt to model human articulation.
-  \item \blu{Formant Synthesis:} Bypass modeling of human articulation, and model acoustics directly.
-  \item \blu{Concatenative Synthesis:} Synthesize from stored units of actual speech
-  \end{itemize}
   
 \myslide{Prosody of Emotion}
 
@@ -106,6 +92,8 @@ Results of various DARPA competitions (from Richard Sproat's slides)
     Richard Sproat
   \end{flushright}
 \end{quote}
+
+
 
 
 \myslide{The Telephone}
@@ -264,6 +252,9 @@ reply below.
   \blu{Internet specific slang/jargon}
 \end{quote}
 
+There was a time when only computer scientists/researchers had email
+and access to the internet, \ldots
+
 \begin{itemize}
 \item Inspired by shared background
   \begin{itemize}
@@ -286,6 +277,11 @@ great/;} \texttt{g\ r\ e\ a\ t}
 
 \myslide{Usenet (asynchronous)}
 
+Usenet ``User's Network'' is a worldwide distributed discussion
+system. It was developed from the general-purpose Unix-to-Unix Copy
+(UUCP) dial-up network architecture.  Users read and post messages
+(called articles or posts, and collectively termed news) to one or
+more topic categories, known as newsgroups. Usenet 
 
 \begin{tabular}{ll}
   \textbf{Speech like} & \textbf{Text like} \\ \hline
@@ -298,12 +294,11 @@ great/;} \texttt{g\ r\ e\ a\ t}
   prosodically rich & graphically rich  \\
 \end{tabular}
 
-Similar to: Bulletin boards; the WELL; some chat; Mailing Lists
+Similar to: Bulletin boards; the WELL; some chat; Mailing Lists; forums
 
 \begin{itemize}
 \item  \texttt{linguist-list}
-\item \texttt{sci.lang.japan} FAQ 
-\\ \url{http://www.sljfaq.org/afaq/afaq.html}
+\item \texttt{sci.lang.japan} FAQ: \url{http://www.sljfaq.org/afaq/afaq.html}
 \end{itemize}
 
 \myslide{Netspeak}
@@ -390,7 +385,6 @@ ___ LAME ASCII GRAPHIC OF (Choose all that apply):
     __ USS ENTERPRISE
 
 COMMENTS:
-
 ___ YOU HAVE GREATLY MISUNDERSTOOD THE PURPOSE OF A SIGNATURE FILE.
 ___ YOU HAVE GREATLY MISUNDERSTOOD THE PURPOSE OF ALT.FAN.WARLORD
 ___ YOU HAVE GREATLY MISUNDERSTOOD THE PURPOSE OF USENET.
@@ -535,18 +529,29 @@ All these things should be rewarded with your attention and praise. And if you g
 \myslide{Denizens of the Net}
 
 \begin{description}
-\item[Troll]: someone who posts inflammatory, extraneous, or off-topic
+\item[Troll] someone who posts inflammatory, extraneous, or off-topic
   messages in an online community with the primary intent of provoking
   other users into an emotional response or of otherwise disrupting
   normal on-topic discussion
 
-\item[Sock Puppet]: an online identity used for purposes of deception
+\item[Sock Puppet] an online identity used for purposes of deception
   within an online community, for example, a fake online identity to
   praise, defend or create the illusion of support for one's self,
   allies or company.
+
+\item[Meat Puppet] someone recruited to an online space by an existing
+  member to support their position.
 \end{description}
 
+\myslide{Time to pick your medium}
 
+\begin{itemize}
+\item Choose something interesting, that you know about, or want to know about
+\item Take a look at similar papers from the past
+  \\ \href{https://bond-lab.github.io/Language-Technology-and-the-Internet/papers/ass1.html}{Papers from earlier years}
+\item Try to add something new, \ldots
+
+\end{itemize}
 
 
 \myslide{Acknowledgments}
