@@ -118,13 +118,13 @@
 \end{itemize}
 
 \myslide{Map of online communities (2007)}
-\MyLogo{\url{http://xkcd.com/256/}}
+\MyLogo{\url{http://xkcd.com/256/} --- \href{https://www.explainxkcd.com/wiki/index.php/256}{explained!}}
 \begin{center}
   \includegraphics[height=\textheight]{../pics/online_communities}
 \end{center}
 
 \myslide{Map of online communities (2010)}
-\MyLogo{\url{http://xkcd.com/802/}}
+\MyLogo{\url{http://xkcd.com/802/} --- \href{https://www.explainxkcd.com/wiki/index.php/802}{explained!}}
 \begin{center}
   \includegraphics[height=\textheight]{../pics/online_communities_2}
 \end{center}
@@ -132,8 +132,11 @@
 
 \myslide{Growth of the Internet}
 \begin{center}
-  \includegraphics[height=\textheight]{../pics/Internet_users_per_100_inhabitants_ITU}
+  \includegraphics[height=0.9\textheight]{../pics/Internet_users_per_100_inhabitants_ITU}
 \end{center}
+
+In 2021: 63\% overall, 57\% developing, 90\% developed (\href{https://en.wikipedia.org/wiki/List_of_countries_by_number_of_Internet_users}{Wikipedia})
+
 \MyLogo{\url{https://commons.wikimedia.org/wiki/File:Internet_users_per_100_inhabitants_ITU.svg}}
 
 \section{Markup: \\ formatting information}
@@ -329,12 +332,13 @@ H1 {
 \item Tags on one site may not mean the same thing on another site
 \item Huge amount of information
   \begin{itemize}
-  \item Looking for \grn{Eric Miller} may get the wrong one!
-  \item Looking for \grn{NTU} gets
+  \item Looking for \emp{Eric Miller} may get the wrong one!
+  \item Looking for \emp{NTU} gets
     \begin{itemize}
     \item Nanyang Technological University
     \item National Taxpayers Union
     \item National Taiwan University
+    \item Nottingham Trent University
     \end{itemize}
   \end{itemize}
 \item What can we do?
@@ -379,7 +383,7 @@ H1 {
 \item Pick a page
   \begin{itemize}
   \item This course page
-  \item LMS research page
+  \item The department's research page
   \item Wiki front page
   \item Your choice
   \end{itemize}
@@ -401,6 +405,8 @@ H1 {
 \item 109.5 million websites (2009)
 \item 5.9 billion indexed pages (Sunday, 23 February, 2020).
   \\ 60 billion pages (googles index)
+\item  3.21 billion indexed pages (Monday, 23 October, 2023).
+    \\ 50 billion pages (googles index)
   \\ \url{https://www.worldwidewebsize.com/}
 \end{itemize}
 
@@ -428,7 +434,7 @@ These pages all include data that search engines cannot find!
   referenced. Robots are used for:
   \begin{itemize}
   \item Indexing and \textit{What's New} monitoring
-  \item HTML and Link validation
+  \item HTML and Link validation  
   \item Mirroring and back up
   \end{itemize}
 \item A website can explicitly tell robots where they can and cannot go
@@ -437,7 +443,12 @@ These pages all include data that search engines cannot find!
   \end{itemize}
 \item You can \blu{Allow} and \blu{Disallow} whole directories, or individual pages
 \item You can \blu{Allow} and \blu{Disallow} individual user-agents
-  (such as \texttt{Google})
+  (such as \texttt{Google} or \texttt{ChatGPT})
+  \\ For example to disallow OpenAI's crawler (for ChatGPT): 
+\begin{verbatim}
+User-agent: GPTBot
+Disallow: /
+\end{verbatim}
 \end{itemize}
 
 
@@ -513,9 +524,9 @@ These pages all include data that search engines cannot find!
 \myslide{The next 5,000 days of the Web}
 \MyLogo{}
 \begin{itemize}
-\item Kevin Kelly on the next 5,000 days of the web (20min)
+\item Kevin Kelly on the next 5,000 days of the web (2007)
 \item
-  \url{http://www.ted.com/talks/lang/eng/kevin_kelly_on_the_next_5_000_days_of_the_web.html}
+  \url{https://www.ted.com/talks/kevin_kelly_the_next_5_000_days_of_the_web}
   (20min)
 \item The impossible has become possible
 \item The web is a single machine
@@ -524,6 +535,8 @@ These pages all include data that search engines cannot find!
   \item Re-structuring
   \item Co-dependence
   \end{itemize}
+\item The future will be shaped by optimists (Kevin Kelly, 2021)
+\item \url{https://www.ted.com/talks/kevin_kelly_the_future_will_be_shaped_by_optimists} (10min)
 
 \end{itemize}
 
