@@ -489,6 +489,8 @@ subject!
   \item in quantitative terms (e.g.\ a document is 95\% English, 3\%
     French and 2\% Italian)
   \end{itemize}
+\newpage
+
 \item Can we move away from accuracy/precision-style evaluation criteria to produce
   something more representative of reality?
   \begin{itemize}
@@ -499,24 +501,9 @@ subject!
   \end{itemize}
 \end{itemize}
 
+ 
 
 
-
-
-
-
-
-\myslide{Summary}
-
-\MyLogo
-
-\begin{itemize}
-\item What is language identification?
-\item Why is language identification important?
-\item What issues arise in language identification?
-\item What methods are used?
-\item Why isn't language identification a solved problem?
-\end{itemize}
 
 \section{Language Normalization}
 
@@ -866,23 +853,23 @@ subject!
 
 
 
-\myslide{Porter Stemmer}
+% \myslide{Porter Stemmer}
 
-\begin{itemize}
-\item Most popular English stemmer currently in use, based on
-  \textbf{suffix} stripping only
-\item Implemented as cascaded set of rewrite rules, e.g.:
-  \begin{quote}
-    \texttt{sses \infers ss}\\
-    \texttt{ies \infers i}\\
-    \texttt{ational \infers  ate}\\
-    \texttt{tional \infers  tion}
-  \end{quote}
-\item Optionally constrain the algorithm to produce a dictionary-listed
-  stem at each step
-\item See \url{www.tartarus.org/~martin/PorterStemmer/} for
-  an implementation in your programming language of choice
-\end{itemize}
+% \begin{itemize}
+% \item Most popular English stemmer currently in use, based on
+%   \textbf{suffix} stripping only
+% \item Implemented as cascaded set of rewrite rules, e.g.:
+%   \begin{quote}
+%     \texttt{sses \infers ss}\\
+%     \texttt{ies \infers i}\\
+%     \texttt{ational \infers  ate}\\
+%     \texttt{tional \infers  tion}
+%   \end{quote}
+% \item Optionally constrain the algorithm to produce a dictionary-listed
+%   stem at each step
+% \item See \url{www.tartarus.org/~martin/PorterStemmer/} for
+%   an implementation in your programming language of choice
+% \end{itemize}
 
 
 
@@ -965,7 +952,28 @@ subject!
 
 
 
+\myslide{Current approaches to tokenization}
 
+\begin{itemize}
+\item Often combined with indexing --- convert a word to a token or tokens represented as an integer
+  \begin{itemize}
+  \item  this saves space and makes further processing easier
+  \item but all text must have the same token
+  \end{itemize}
+\item Three possible approaches:
+  \begin{itemize}
+  \item word-based 
+  \item character-based
+  \item subword-based
+    \\  rare words are decomposed into meaningful subwords
+  \end{itemize}
+\item subword-based approaches are state-of-the art
+  \begin{itemize}
+  \item end up with a mixture of words and chunks
+   \\ Try English at the  \href{https://belladoreai.github.io/llama-tokenizer-js/example-demo/build/}{llama-tokenizer-js playground}
+\item Or a multilingual model like the  \href{https://hanlp.hankcs.com/en/demos/tok.html}{HanLP Tokenizer}
+  \end{itemize}  
+\end{itemize}
 
 
 
