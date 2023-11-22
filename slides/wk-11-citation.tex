@@ -1,7 +1,7 @@
 \PassOptionsToPackage{xetex}{xcolor}
 \PassOptionsToPackage{xetex}{graphicx}
 \documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
-
+\usepackage{tikz}
 \input{headx.tex}
 
 \header{Lecture 11}{Citation, Reputation and PageRank}
@@ -22,45 +22,45 @@
 
 
 
-\myslide{Review of the Semantic Web}
+% \myslide{Review of the Semantic Web}
 
-\begin{itemize} 
-\item Web of data
-  \begin{itemize}
-  \item provides common data representation framework
-  \item makes possible integrating multiple sources
-  \item so you can draw new conclusions
-  \end{itemize}
-\item  Increase the utility of information by connecting it to definitions and context
-\item  More efficient information access and analysis
-\end{itemize}
+% \begin{itemize} 
+% \item Web of data
+%   \begin{itemize}
+%   \item provides common data representation framework
+%   \item makes possible integrating multiple sources
+%   \item so you can draw new conclusions
+%   \end{itemize}
+% \item  Increase the utility of information by connecting it to definitions and context
+% \item  More efficient information access and analysis
+% \end{itemize}
 
-E.G. not just "color" but a concept denoted by a Web identifier: 
-\\ \url{<http://pantone.tm.example.com/2002/std6#color>}
+% E.G. not just "color" but a concept denoted by a Web identifier: 
+% \\ \url{<http://pantone.tm.example.com/2002/std6#color>}
 
-\myslide{Semantic Web Architecture}
+% \myslide{Semantic Web Architecture}
 
-\includegraphics[height=\textheight]{../pics/semantic-web-layers.eps}
+% \includegraphics[height=\textheight]{../pics/semantic-web-layers.eps}
 
-\myslide{Semantic Web Architecture (details)}
-\begin{itemize}
-\item Identify things with  \blu{Uniform Resource Identifiers}
-  \begin{itemize}
-  \item \blu{Universal Resource Name}: \url{urn:isbn:1575864606}
-  \item \blu{Universal Resource Locator:}: \url{http://www3.ntu.edu.sg/home/fcbond/}
-  \end{itemize}
-\item Identify relations with  \blu{Resource Description Framework}
-  \begin{itemize}
-  \item Triples of $<$subject, predicate, object$>$
-  \item Each element is a \emp{URI}
-  \item RDFs are written in well defined XML
-  \item You can say anything about anything
-  \end{itemize}
-\item You can build relations in ontologies (\blu{OWL})
-  \begin{itemize}
-  \item Then reason over them, search them, \ldots
-  \end{itemize}
-\end{itemize}
+% \myslide{Semantic Web Architecture (details)}
+% \begin{itemize}
+% \item Identify things with  \blu{Uniform Resource Identifiers}
+%   \begin{itemize}
+%   \item \blu{Universal Resource Name}: \url{urn:isbn:1575864606}
+%   \item \blu{Universal Resource Locator:}: \url{http://www3.ntu.edu.sg/home/fcbond/}
+%   \end{itemize}
+% \item Identify relations with  \blu{Resource Description Framework}
+%   \begin{itemize}
+%   \item Triples of $<$subject, predicate, object$>$
+%   \item Each element is a \emp{URI}
+%   \item RDFs are written in well defined XML
+%   \item You can say anything about anything
+%   \end{itemize}
+% \item You can build relations in ontologies (\blu{OWL})
+%   \begin{itemize}
+%   \item Then reason over them, search them, \ldots
+%   \end{itemize}
+% \end{itemize}
 
 
 \myslide{Overview of Citation, Reputation and PageRank}
@@ -395,22 +395,34 @@ Internet, see the <a href="http://..">HG803 Course Page.</a>
 
 \myslide{The web as a directed graph}
 
-\psset{unit=8mm}
-\begin{small}
-  % \fbox{
-  \begin{pspicture}(0,-1.5)(12,3.8)
+% \psset{unit=8mm}
+% \begin{small}
+%   % \fbox{
+%   \begin{pspicture}(0,-1.5)(12,3.8)
 
-    % \rput(5,1){\circlenode{A}{page $d_1$ \parbox{1cm}{}}}
-    \rput(5,1){\circlenode{A}{\makebox[6em]{page $d_1$}}}
-    \rput(5,0){\rnode{H}{\blu{\ul{anchor text}}}}
-    \rput(12,1){\circlenode{B}{\makebox[6em]{page $d_2$}}}
-    \ncline[nodesep=0pt]{->}{H}{B}
-    % \Aput{hyperlink}
+%     % \rput(5,1){\circlenode{A}{page $d_1$ \parbox{1cm}{}}}
+%     \rput(5,1){\circlenode{A}{\makebox[6em]{page $d_1$}}}
+%     \rput(5,0){\rnode{H}{\blu{\ul{anchor text}}}}
+%     \rput(12,1){\circlenode{B}{\makebox[6em]{page $d_2$}}}
+%     \ncline[nodesep=0pt]{->}{H}{B}
+%     % \Aput{hyperlink}
 
-  \end{pspicture}
-  % % }
-\end{small}
+%   \end{pspicture}
+%   % % }
+% \end{small}
 
+\begin{center}
+\usetikzlibrary{positioning, shapes.geometric}
+\begin{tikzpicture}[>=latex, node distance=2cm]
+
+  \node[circle, draw, inner sep=0pt, minimum size=5cm] (A) at (5,1)   {page $d_1$};
+    \node[below=-20mm of A] (H) {\textcolor{blue}{\underline{anchor text}}};
+    \node[circle, draw, inner sep=0pt, right=of A, minimum size=4cm] (B) {page $d_2$};
+
+    \draw[->] (H) -- (B);
+
+\end{tikzpicture}
+\end{center}
 
 \begin{itemize}
 \item {Assumption 1: \blu{A hyperlink is a quality
@@ -425,9 +437,9 @@ Internet, see the <a href="http://..">HG803 Course Page.</a>
 \begin{itemize}
 \item {We use anchor text loosely here for any text surrounding the hyperlink. }
 \item {Example: ``You can find cheap
-  cars $<$a href=http://...$>$here$<$/a$>$.''}
+  cars $<$a href='http://URL'$>$here$<$/a$>$.''}
 \item {Anchor text: ``You can find cheap
-  cars here''}
+  cars here''} describes the page at URL
 \end{itemize}
 %\item {Easy to find cases where these two
 %  assumptions are violated.}
@@ -457,32 +469,43 @@ Internet, see the <a href="http://..">HG803 Course Page.</a>
 
 \myslide{Anchor text containing \emph{IBM} pointing to www.ibm.com}
 
-\psset{unit=5mm}
+% \psset{unit=5mm}
 
-\begin{pspicture}(-7,0)(30,20)
-
-
-
-\rput(5,18){www.nytimes.com: ``\rnode{A}{IBM} acquires Webify''}
-\rput(10,13){www.slashdot.org: ``New \rnode{B}{IBM}
-  optical chip''}
-\rput(15,8){www.stanford.edu: ``\rnode{C}{IBM}
-  faculty award recipients''}
-\rput(10,2){\rnode{D}{\psframebox{wwww.ibm.com}}}
-
-{
-\ncline[nodesep=3pt,linestyle=dashed]{->}{A}{D}
-\ncline[nodesep=3pt,linestyle=dashed]{->}{B}{D}
-\ncline[nodesep=3pt,linestyle=dashed]{->}{C}{D}
-}
-
-\end{pspicture}
+% \begin{pspicture}(-7,0)(30,20)
 
 
 
+% \rput(5,18){www.nytimes.com: ``\rnode{A}{IBM} acquires Webify''}
+% \rput(10,13){www.slashdot.org: ``New \rnode{B}{IBM}
+%   optical chip''}
+% \rput(15,8){www.stanford.edu: ``\rnode{C}{IBM}
+%   faculty award recipients''}
+% \rput(10,2){\rnode{D}{\psframebox{wwww.ibm.com}}}
 
+% {
+% \ncline[nodesep=3pt,linestyle=dashed]{->}{A}{D}
+% \ncline[nodesep=3pt,linestyle=dashed]{->}{B}{D}
+% \ncline[nodesep=3pt,linestyle=dashed]{->}{C}{D}
+% }
 
+% \end{pspicture}
+\bigskip
+\bigskip
+\bigskip
+\begin{center}
+\begin{tikzpicture}[>=latex, node distance=2.5cm]
 
+    \node[align=center] (A) at (8,6) {www.nytimes.com: \\ ``\textcolor{blue}{\underline{IBM}} acquires Webify''};
+    \node[align=center] (B) at (16,4) {www.slashdot.org: \\ ``New \textcolor{blue}{\underline{IBM}} optical chip''};
+    \node[align=center] (C) at (24,2) {www.stanford.edu: \\ ``\textcolor{blue}{\underline{IBM}} faculty award recipients''};
+    \node[draw, circle, align=center] (D) at (16,-2) {wwww.ibm.com};
+
+    \draw[->, dashed, shorten >=2pt] (A) -- (D);
+    \draw[->, dashed, shorten >=2pt] (B) -- (D);
+    \draw[->, dashed, shorten >=2pt] (C) -- (D);
+
+\end{tikzpicture}
+\end{center}
 % \myslide{Indexing anchor text}
 
 % \begin{itemize}
@@ -896,6 +919,7 @@ engine's index.
 \end{itemize}
 
 \myslide{Digital object identifier}
+\MyLogo{\href{https://www.doi.org/the-identifier/what-is-a-doi/}{What is a DOI} at the DOI foundation.}
 \begin{itemize}
 \item \blu{DOI}: a string used to uniquely identify an electronic document or object
 \item Metadata  about the object is stored with the DOI name
@@ -905,6 +929,7 @@ engine's index.
 \item  The DOI system is implemented through a federation of registration agencies coordinated by the International DOI Foundation
 \item By late 2009 approximately 43 million DOI names had been assigned by some 4,000 organizations
   \begin{itemize}
+    \item 200 millionth DOI in 2020
   \item 100 millionth DOI assigned in 2014
   \item  10 millionth DOI  assigned in August 2003
   \item  millionth DOI was assigned in April 2000
@@ -918,9 +943,9 @@ engine's index.
 \begin{verbatim}
 url = http://www.springerlink.com/content/v7q114033401th5u/
 type = journal 
-last1 = Bond | first1 = F. 
-last2 = Fujita | first2 = S. 
-last3 = Tanaka | first3 = T. 
+last1 = Bond | first1 = Francis 
+last2 = Fujita | first2 = Sanae 
+last3 = Tanaka | first3 = Takaaki 
 title = The Hinoki syntactic and semantic treebank of Japanese 
 journal = Language Resources and Evaluation 
 volume = 42 
@@ -998,7 +1023,6 @@ Makes it easier to correctly count citations -- makes analysis more reliable
 % \end{itemize}
 
 
-
 \myslide{Acknowledgments and Further Reading}
 
 \begin{itemize}
@@ -1015,9 +1039,9 @@ American Mathematical Society, Monthly Column
 \textit{Information Processing \& Management},
 \textbf{12:5}  pp 297-312, ISSN 0306-4573.
 
-\item Xinyi Zhou, Reza Zafarani \href{https://arxiv.org/abs/1812.00315}{Fake News: A Survey of Research, Detection Methods, and Opportunities} arxiv.org, retrieved 2019-04-03
-\item Olga Yurkova (2018) \href{https://gijn.org/six-fake-news-techniques-and-simple-tools-to-vet-them/}{Six Fake News Techniques and Simple Tools to Vet Them} Global Investigative Journalism Network, accessed 2019-04-03 [mainly non-linguistic methods]
-\item  Hannah Rashkin, Eunsol Choi, Jin Yea Jang, Svitlana Volkova and Yejin Choi (2017) \href{https://www.aclweb.org/anthology/D17-1317/}{Truth of Varying Shades: Analyzing Language in Fake News and Political Fact-Checking} Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 2931–2937 Copenhagen, Denmark, September 7–11, 2017. c 2017 Association for Computational Linguistics
+% \item Xinyi Zhou, Reza Zafarani \href{https://arxiv.org/abs/1812.00315}{Fake News: A Survey of Research, Detection Methods, and Opportunities} arxiv.org, retrieved 2019-04-03
+% \item Olga Yurkova (2018) \href{https://gijn.org/six-fake-news-techniques-and-simple-tools-to-vet-them/}{Six Fake News Techniques and Simple Tools to Vet Them} Global Investigative Journalism Network, accessed 2019-04-03 [mainly non-linguistic methods]
+% \item  Hannah Rashkin, Eunsol Choi, Jin Yea Jang, Svitlana Volkova and Yejin Choi (2017) \href{https://www.aclweb.org/anthology/D17-1317/}{Truth of Varying Shades: Analyzing Language in Fake News and Political Fact-Checking} Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 2931–2937 Copenhagen, Denmark, September 7–11, 2017. c 2017 Association for Computational Linguistics
 
 \end{itemize}
 \end{document}
