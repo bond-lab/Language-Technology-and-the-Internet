@@ -1,0 +1,478 @@
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[25pt,a4paper,landscape,headrule,footrule,xetex]{foils}
+\usepackage{listings}
+\input{headx.tex}
+\newcommand{\prompt}[1]{\fbox{
+    \begin{minipage}{0.9\linewidth}
+      #1
+    \end{minipage}}}
+
+
+\header{Lecture 10}{The Semantic Web}
+
+
+\begin{document}
+
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+
+\maketitle
+\makexeCJKinactive
+
+%\input{schedule}
+
+
+\section{LLM\\ Large Language Models}
+
+
+\myslide{Large Language Models}
+
+\begin{itemize}
+\item Generative models that capture extended context in order to
+  predict the next token (word, sub-word or symbol) 
+\item The main innovation is in the sheer size
+\item They model how language is used
+\item They can appear know a lot about the world
+  \begin{itemize}
+  \item Humans naturally make meaning of language we encounter and     imagine the mind behind that language
+     \begin{itemize}
+  \item Artificial agents have limited capacity for communicative intent
+  \item And some natural language systems have none
+  \end{itemize}
+\item Dealing with the risks of language
+    technology requires recognizing and accounting for the above
+ \\   \href{https://faculty.washington.edu/ebender/papers/Bender-HiTZ-2023.pdf}{Meaning
+      making with artificial interlocutors and risks of language
+      technology}, Talk at HiTz, Emily Bender 2023
+  \end{itemize}
+%\item We will look at ChatGPT 3.5, but there are many similar models
+\end{itemize}
+
+\myslide{Generative Pre-trained Transformer (GPT) models}
+
+\begin{itemize}
+\item Non-supervised --- just needs text (and/or code)
+ \\[3ex]
+  \begin{tabular}{clrrl}
+    Date & Name & Parameters$^{*}$ & Data & Type \\ \hline
+    2018 &  GPT &  117 &  4.5 GB &  Books \\
+    2019 &  GPT-2 & 1,500  &  40 GB & Web \\
+    2020 &  GPT-3 &  175,000 &  570 GB &
+      Web 82\%, Books 16\%  Wiki 3\% \\ 
+    2021 & ChatGPT$^{**}$ \\
+    2023 & GPT-4 & {$^{***}$}1,750,000 & ? &  text and images
+  \end{tabular}
+  \\ {*} million
+  \\ {**}  GPT-3.5 fine-tuned to follow instructions and interact
+  \\ {***} estimate
+\end{itemize}
+
+Lambdalabs estimates a cost of around \$4.6 million US dollars and 355 years to train GPT-3 on a single GPU in 2020
+
+\myslide{ChatGPT Intro}
+
+\begin{itemize}
+\item The base is generative pre-trained transformer (GPT) model
+  \\ based on the transformer architecture developed by Google
+\item Training data includes software manual pages, bulletin board systems, multiple programming languages, wikipedia, books and more (up to Jan 2022)
+  \item Fine-tuned for conversational applications using a combination
+  of supervised and reinforcement learning techniques from human feedback
+\item Interact with a prompt, to which you get a response
+  \begin{itemize}
+  \item  keeps a context of 4k tokens ($\approx 500$ tokens/A4 page)
+  \item  longer context (up to 32k) in newer models
+  \end{itemize}
+\item Free interface, beyond a certain amount you are charged per
+  token
+  \\ (from   $\$0.002--\$0.12$/token)        
+  
+\end{itemize}
+
+\myslide{Prompt Engineering}
+
+The first prompt provides a starting point or direction for ChatGPT. The response follows the same tone, context, and style as the prompt.
+
+\begin{itemize}
+\item Start simple - start with a simple prompt and build on it
+\item Give a command - start the prompt with an action word like "Write", "Create", or "Summarize" instead of "Can you"
+\item Add Context - add specific and relevant context to the task you want to perform
+\item Add Expectations - add clear and direct expectations for the content, like how long it should be and what to include
+\end{itemize}
+
+\prompt{Create a list of interesting places to visit in Olomouc:\\
+  - they should be cheap\\
+  - they should be fun}
+
+\myslide{Role Prompting}
+
+A simple way to add context to a prompt is to assign a role to ChatGPT.
+
+\prompt{You are a student.\\
+Create a list of interesting places to visit in Olomouc:\\
+  - they should be cheap\\
+  - they should be fun}
+
+\prompt{You are an artist.\\
+Create a list of interesting places to visit in Olomouc:\\
+  - they should be cheap\\
+  - they should be fun}
+
+\prompt{You are a foodie.\\
+Create a list of interesting places to visit in Olomouc:\\
+  - they should be cheap\\
+  - they should be fun}
+
+\myslide{You can add a lot more information}
+\begin{itemize}
+\item \txx{Zero-shot} prompting means providing a prompt with no examples
+\prompt{Classify the text into positive, neutral or negative: \\
+Text: That shot selection was awesome. \\
+Classification: \\
+}
+\newpage
+
+\item \txx{Few-shot} prompting means you give the system some examples
+
+
+
+
+
+\prompt{Text: Today the weather is fantastic \\
+Classification: Pos \\
+Text: The furniture is small. \\
+Classification: Neu \\
+Text: I don't like your attitude \\
+Classification: Neg \\
+Text: That shot selection was awful \\
+Classification:
+\\}
+
+\end{itemize}
+
+\myslide{ChatGPT example with formatting}
+
+  \fbox{\begin{minipage}{0.9\linewidth}
+Write a short introduction to computational linguistics \\ using LaTeX with linguistic examples
+  \end{minipage}}
+\smaller
+\begin{verbatim}
+\documentclass{article}
+
+\begin{document}
+
+\section{Introduction to Computational Linguistics}
+
+Computational Linguistics is an interdisciplinary field that 
+combines knowledge and techniques from linguistics, computer 
+science, artificial intelligence, and cognitive psychology to
+understand and model language from a computational perspective.
+\end{verbatim}
+
+\begin{verbatim}
+For example, computational linguistics can be used to study 
+the structure of language at different levels, such as syntax 
+and morphology. In syntax, computational linguistics can help 
+identify the rules that govern how words are combined to form 
+phrases and sentences. For instance, in the sentence "The cat 
+chased the mouse", computational linguistics can analyze the 
+syntactic structure to identify that "The cat" is the subject,
+ "chased" is the verb, and "the mouse" is the object.
+
+Similarly, in morphology, computational linguistics can help 
+identify the rules that govern how words are formed from smaller
+ units of meaning, called morphemes. For example, in the word
+ "unhappiness", computational linguistics can analyze the
+morphological structure to identify that "un-" is a prefix 
+meaning "not", "-happi-" is the root meaning "happy", and 
+"-ness" is a suffix meaning "state of".
+\end{verbatim}
+
+\begin{verbatim}
+Overall, computational linguistics provides a powerful set of
+tools for analyzing language and understanding its underlying
+structure. It has many practical applications, such as natural
+language processing, machine translation, and speech recognition,
+and continues to be an active area of research and development.
+\end{document}
+\end{verbatim}
+
+\myslide{Some possible uses}
+
+\begin{itemize}
+\item Brainstorming
+\item First Draft
+\item Find Title
+\item Email
+\item Summarize
+\item Code
+\item Debug
+\end{itemize}
+
+\myslide{Brainstorming}
+
+\prompt{What are some unique ideas for activities for 10 five-year-old girls at a birthday party?}
+
+\prompt{How can we combine ideas 4 and 6? How can we make this into a unique experience that the children will remember?}
+
+\myslide{First Draft}
+
+\prompt{Write an outline for a tutorial on prompt engineering}
+
+\prompt{For a tutorial on prompt engineering, write a section about "Understanding the Basics of Prompts"}
+
+
+
+\myslide{Find Title}
+
+\prompt{Suggest 10 titles for a short story about a robot posing as a student. It is written from a teenager's perspective, and the robot is almost a perfect copy of a human. They find friends and fall in love. But they still can't solve captchas when browsing the internet.}
+
+\prompt{Number 8 suits the story well, as the story is mainly about the robot figuring out how to stay true to its robotic nature but at the same time develop as a human. Based on that, suggest 10 more titles.}
+
+
+\myslide{Email}
+
+\prompt{Write a professional email requesting the day of the 17th of November? This is a holiday in the Czech Republic and though we understand that this is not usually a day off in the USA, we want to respect our Czech heritage with our family.}
+
+\prompt{Write a professional email complaining about the lack of parking spaces around our office building}
+
+These emails may contain details that are not true?   They may be over long?  What do you think?
+
+
+\myslide{Summarize}
+
+\prompt{Summarize "the War with the Newts"}
+
+\prompt{Summarize "the War with the Newts" by Karel Čapek}
+
+\prompt{Summarize "the War with the Newts" by Conan Doyle}
+
+\prompt{Summarize "the War with the Newts" from the newts' point of view}
+
+Beware of hallucinations!
+
+\myslide{Code}
+
+\prompt{Make a website using flask for the computational linguistics group with pages for teaching, research and news}
+
+\prompt{Add a navigation bar}
+
+
+\myslide{Debug}
+
+\prompt{
+class Test:\\
+\makebox[2em]{}def printToTen(self):\\
+\makebox[4em]{}ten = 10\\
+\makebox[4em]{}print(ten)\\
+\\
+test = Test()\\
+test.printToTen() \# Should print 10\\
+
+
+Why does my Python code not iterate from 1 to 10 and print all numbers out?
+}
+
+
+\myslide{Key Principles of Prompt Engineering}
+\begin{itemize}
+ \item{Clarity and Specificity in Prompts}
+  \begin{itemize}
+  \item Avoiding Ambiguity
+  \item Defining Clear Context and Goals
+  \end{itemize}
+  
+\item{Tailoring Prompts to Model Capabilities}
+  \begin{itemize}
+  \item Understanding Model Strengths and Limitations
+  \item Crafting Prompts that Align with Model Capabilities
+  \end{itemize}
+  
+\item{Iterative Refinement}
+  \begin{itemize}
+  \item Experimentation with Various Prompts
+  \item Analyzing Model Responses for Improvement
+  \end{itemize}
+\end{itemize}
+  
+
+\section{Discussion}
+
+\myslide{LLM pros and cons}
+
+  \begin{itemize}
+  \item Mainly grammatical text
+    \begin{itemize}
+    \item For English, although no one knows if it is the same as
+      human produced text %\hfill  \txx{We should study this: with DELPH-IN, GWA}
+    \end{itemize}
+  \item Good at transformation
+    \begin{itemize}
+    \item Translation
+    \item Text to code (quicker but less secure)
+    \item Text to image
+    \end{itemize}
+  \item Very expensive to train
+    \begin{itemize}
+    \item Only corporations can build the latest models
+    \item Uses a lot of computing power
+    \item Big carbon footprint
+      \\ every month it uses (estimated) 4 M KWh $\approx$ as much as 30 Danes
+      \\ to handle  $\approx$ 3,000 million requests!
+    \end{itemize}
+%%%%% https://towardsdatascience.com/chatgpts-electricity-consumption-7873483feac4
+    \newpage
+  \item It learns from the web
+    \begin{itemize}
+    \item A very wide range of knowledge
+    \item[\Bad] Including sexist, racist and other toxic language
+    \end{itemize}
+  \item It does not have a model of the world
+    \begin{itemize}
+    \item GPT-3 models relationships between words without having an understanding of the meaning behind the utterances
+    \item So it makes stuff up (\txx{hallucinates})
+      \\ and there is no way of knowing when it is doing so
+    \item Fixing this is a hot-topic of research, but there is no clear answer
+    \end{itemize}
+  \item Some of its training data is copy-righted text
+    \begin{itemize}
+    \item It is not clear whether this is \txx{legal} (probably) or \\ \emp{ethical}
+      (probably not if it can closely reproduce the input text/image/code)
+    \item This is especially a problem for visual models
+    \end{itemize}
+    \newpage
+  \item Text produced by a language model is always high-probability text
+    \begin{itemize}
+    \item So it tends to be blah
+    \item The programming is not-elegant
+    \item The pictures are derivative
+    \end{itemize}
+    We may end up being drowned in mediocre AI produced crap
+    \begin{itemize}
+    \item  SF magazines are already reporting an increase in submissions
+    \item \emp{If students can use it to save time, then they will}
+    \item \txx{We have to set problems that cannot just be solved using LLMs}
+    \item \txx{We should teach students to use it effectively \\
+        --- like a calculator for text}
+    \end{itemize}
+    \bigskip
+    \item LLMs may become self-aware and super-intelligent and kill all humans
+    \begin{itemize}
+    \item Unlikely given their lack of understanding or linking to the physical world
+    \item They are building some internal models
+      \\ but they have no understanding or actual planning
+%    \item \emp{Hinton just resigned from Google} 2023-05-01!
+    \end{itemize}
+  \end{itemize}
+
+% \begin{frame}{Possible Research Directions}
+%   \begin{itemize}
+%   \item Use our current linguistic research to see how close LLM
+%     generated text is to human text
+%     \begin{itemize}
+%     \item We can look at syntax
+%     \item We can look at word meanings/translations
+%     \end{itemize}
+%     Interesting but only marginally, need to rerun frequently
+%   \item Experiment with using LLMs to automate some linguistic tasks
+%     \begin{itemize}
+%     \item Creating Lexicons
+%       \begin{itemize}
+%       \item I did a small pilot, good for common words in major
+%         languages, unreliable for rare words or smaller languages
+%       \item Size matters: Chat GPT-3 much, much better than smaller
+%         models like Llama or Alpaca
+%       \end{itemize}
+%     \item I would like to try it for Word Sense Disambiguation
+%     \end{itemize}
+ 
+%   \end{itemize}
+% \end{frame}
+  
+% \myslide{Risks and Ethical Issues}
+%   \begin{itemize}
+%   \item It will be harder to get funding to do non-neural net
+%     computational linguistic research
+%     \\ or linguistics or writing or translation, \ldots
+%   \item But it still needs to be done
+%   \item Building LLMs is fundamentally an engineering problem
+%     \begin{itemize}
+%     \item Understanding them is the issue (but requires strong
+%       computational skill)
+%     \end{itemize}
+%   \item Copyright and ownership issues are up in the air
+%   \item We need to have a coherent policy on students using LLMs
+%     \begin{itemize}
+%     \item Make sure the students have a level playing field
+%     \item Make sure they don't use them when they need to practice
+%       basic skills
+%     \item But allow them to use them when appropriate?
+%     \item Similar issue to using machine translation in language classes.
+%     \end{itemize}
+%   \item I think the research we will do should not pose an existential risk
+%   \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\myslide{ChatGPT}
+
+\myslide{If ChatGPT Can Do It, It’s Not Worth Doing}
+
+  \href{https://www.insidehighered.com/opinion/blogs/just-visiting/2023/09/20/chatgpt-shows-way-toward-our-own-humanity}{If ChatGPT Can Do It, It’s Not Worth Doing}
+\href{https://www.insidehighered.com/}{Inside Higher Ed} by  John Warner,  2023
+  
+\href{https://lwn.net/Articles/945504/}{AI from a legal perspective} Linux Weekly News by Jake Edge September 26, 2023
+
+\href{https://www.wired.com/story/fast-forward-chatbot-hallucinations-are-poisoning-web-search/}{Chatbot Hallucinations Are Poisoning Web Search} Wired, ILL KNIGHTBUSINESSOCT 5, 2023 12:00 PM (accessed 2023-10-06)
+  
+
+\href{https://retractionwatch.com/2023/10/06/signs-of-undeclared-chatgpt-use-in-papers-mounting/}{Signs of undeclared ChatGPT use in papers mounting} \textit{Retraction Watch} October 6, 2023 Frederik Joelving (accessed 2023-10-03)
+
+
+
+\href{https://annals-csis.org/proceedings/2023/pliks/3725.pdf}{An Evaluation of a Zero-Shot Approach to
+Aspect-Based Sentiment Classification in Historic
+German Stock Market Reports} (2023) Janos Borst, Lino Wehrheim, Andreas Niekler, Manuel Burghardt
+Preprints of Communication Papers of the of the 18th Conference on Computer
+Science and Intelligence Systems pp. 51–60
+
+\href{https://blog.mathieuacher.com/GPTsChessEloRatingLegalMoves/}{Debunking the Chessboard: Confronting GPTs Against Chess Engines to Estimate Elo Ratings and Assess Legal Move Abilities} 
+Mathieu Acher Blog, September 30, 2023, accessed 2023-10-18
+
+\href{https://bdtechtalks.com/2023/05/17/llm-emergent-abilities-mirage/}{Are the emergent abilities of LLMs like GPT-4 a mirage?} TechTalks
+By Ben Dickson -May 17, 2023, accessed 2023-10-19
+
+\href{https://pluralistic.net/2023/11/27/10-types-of-people/}{The real AI fight} Pluralistic, by Cory Doctorow (27 Nov 2023)
+
+%%
+%% Good source for a tutorial:
+\myslide{Acknowledmegments}
+
+\begin{itemize}
+\item Some prompt examples taken from
+  \href{https://www.w3schools.com/gen_ai/chatgpt-3-5/index.php}{ChatGPT-3.5
+    Tutorial} from W3 Schools
+\item \url{https://rollbar.com/blog/how-to-debug-code-using-chatgpt/}
+\end{itemize}
+%% 
+
+
+%I have taken slides from many of these.
+
+\end{document}
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% End: 
