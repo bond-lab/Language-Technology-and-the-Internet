@@ -7,130 +7,80 @@
 </head><body>
 
 
-<h1>Uncertain Communication</h1>
+<h1>Using Large Language Models</h1>
 
 <p>This assignment constitutes 30% of your final grade.  Please work
 on the task individually.  Unless specifically requested otherwise,
 your report may later be posted on-line with a CC-BY license.
 <p><b>Deadline</b>: see <a href='index.html'>the main page</a>.
 
-<p>Chose one of A, B, C:
+
+<h3>Create linguistic resources using one or more large language models</h3>
 
 <ul>
-  <!-- <li><b>A:</b> Examine some examples of <b>phishing mail</b>, either from -->
-  <!-- your own experience or from a collection such as the <a href='http://www.monkey.org/~jose/wiki/doku.php?id=phishingcorpus'>Phishing -->
-  <!-- Corpus</a>. -->
-  <!-- Identify and describe, with examples, what kinds of grammatical, -->
-  <!-- lexical, orthographic or meta-data features could be used to -->
-  <!-- distinguish phishing mail from normal mail. -->
-  <!--   <ul> -->
-  <!--     <li>Summarize relevant literature on phishing detection -->
-  <!--     <li>Describe how these features can be identified -->
-  <!--     <li>Finally, write your own phishing mail, aimed at NTU -->
-  <!--   students, trying to get their username and password, and describe -->
-  <!--   how you have made it convincing. -->
-  <!-- </ul> -->
-  <li><b>A:</b> Examine some examples of <b>fake news</b>, either from
-    your own experience or from a collection such as the
-    <a href='http://web.eecs.umich.edu/~mihalcea/downloads.html#FakeNews'>Fake
-  News Dataset</a>.
-  Identify and describe, with examples, what kinds of grammatical,
-  lexical, orthographic or meta-data features could be used to
-  distinguish fake news from legitimate news.
-    <ul>
-      <li>Summarize relevant literature on fake news detection
-      <li>Describe how these features can be identified
-      <li>Finally, find one or more examples of fake news on a subject related
-	to linguistics and describe how it can be identified as fake.
-      <li> Think about how recent Singaporean legislation would treat this.
-  </ul>
- <li><b>B:</b> Identify and describe a source of linguistic meta-data 
-  (at any level: phonological, morphological, syntactic, semantic or pragmatic)
-  that could be harvested from the Internet. 
-   <ul>
-     <li> words that rhyme harvested from poetry
-     <li> positive or negative sentiment from reviews
-     <li> multilingual/bilingual data
-   </ul>
- <ol>
-  <li>Show what property or properties are annotated by the meta-data, with examples
-  <li>Outline how the data could be harvested and pre-processed
-    <br> optionally, harvest and pre-process some.
-  <li>Estimate how much annotated data is available
-  <li>You should chose a new source of data, not one that is already
-    described in the literature 
-    (although you can make a variation on an existing approach)
- </ol>
- <li> <b>C:</b> Analyze the <a href='chat.html'>chat corpus</a> provided here. 
-   <ul>
-     <li> Identify expressions unique to chat/online communication and
-     suggest why they are used here.
-     <li> Refer to expressions by date, time and where necessary,
-     participant (e.g. Mon 20:40 <B>S</B>)
-   </ul>
+  <li>Create the following 3 resources (which would be useful for creating a sentiment analysis system like Vader)
+    <ol>
+      <li>A list of evaluative words in Czech, with English
+      Translations, with a valence between +1 and -1, formatted as TSV
+	(tab separated values).
+<pre>	
+skvělý	truly exceptional, outstanding	+1
+dobrý	good, satisfactory, of a good standard	+0.7
+fajn	okay, good enough, not bad	+0
+špatný	bad, poor, of poor quality	-0.6
+zlý	bad, evil, wicked	-0.7
+otřesný	terrible, shocking, causing great distress	-0.9
+</pre>
+      <li>A list of boosters in Czech, with English translations, formatted as TSV
+	<pre>
+opravdu   really
+velmi	  very
+hodně     a lot
+	</pre>
+     <li>A list of diminishers in Czech, with English translations, formatted as TSV
+	<pre>
+docela     quite
+trochu     a bit
+poněkud    somewhat
+celkem     fairly
+    </ol>
 
-   <br>This corpus was produced and anonymized by Lim Hogzhen as part
-   of her FYP <i>A comparison of Code-switching Patterns between
-   Text-Messaging and Speech</i> in 2014.  The participants agreed to
-   release it under a
-   <a href='creativecommons.org/licenses/by/3.0/sg'>creative commons
-   attribution license</a>.  The two participants are <i>Samantha</i>
-   (not her real name) and <i>Ophelia</i> (not her real name) both
-   Singaporean undergraduate students at NTU (female; age between
-   20-25; both use a mixture of Chinese and English).  There is some
-   mark-up of code switching (e.g. &lt;ra:w:n&gt; and bolding or
-   underlining: you can just ignore it).  
- </ul>
+</ul>
+  <li>You should use at least two different LLMs
+  <li>You should try multiple different queries
+  <li>You should discuss which queries worked better with which systems and why (you need to date the query/response, as they change often)
+  <li>You should try to get as many useful words (i.e. those with a valence not equal to zero) as you can
+  <li>You can combine the results of different queries by hand, or try to use an LLM to do this
+  <li>You can use the LLM to write part of the report, if you do, you should make clear which part and what the prompt was
+  
+    <p>You will be evaluated both on the quality of the resource you are able to build <strong>and</strong> the discussion of how you used the LLMs to build it.
 
-<p>Whichever topic you choose you should find and cite relevant literature.
-
-  <p>Do not go actually phish for people's passwords or post the fake
-  news (unless it is clearly identified as such).
 
 <h3>Deliverable</h3>
 <ul>
 
-  <li>The deliverable is be a paper of no more than eight pages including diagrams and
-    references
-  <li>Formatted according to
-  the <a href='http://www.soh.ntu.edu.sg/Programmes/linguistics/studentresources/Documents/Linguistics%20Assignment%20Guidelines.pdf'>LMS
-  guidelines</a> to submitting written work for the Division of LMS
-  (but see below).
+  <li>The deliverable is be a paper of no more than twelve pages
+    including diagrams, prompts and references
+    <ul>
+      <li>Along with three files <b><tt>valence.tsv</tt>,  <tt>booster.tsv</tt>, <tt>diminisher.tsv</tt></b>.
+      <li>zip them up in a file <b><tt>surname.zip</tt></b>
+	
+    </ul>
  <li>Make sure you include page numbers
   <li>Use single spacing.
-  <li>If you want to make it even more beautiful, as I am sure you do,
-  take a look at my <a href =
-  "http://www3.ntu.edu.sg/home/fcbond/data/ling-style.pdf">(Computational)
-  Linguistic Style Guidelines</a>: a guide for the flummoxed.
-  <li> Submit only <b>softcopy</b> (via NTULearn).
+  <li> Submit only <b>softcopy</b> 
 </ul>
 
 
 <h4>References</h4>
 <ul>
-  <li>Susan C Herring
-    (2007). <a href='http://www.languageatinternet.org/articles/2007/761'>A
-    faceted classification scheme for computer-mediated
-    discourse.</a> <i>Language@Internet</i>
-  <li>David Crystal (2006). <i>Language and the Internet</i>. 
-    Cambridge University Press, 2nd edition.
-<li>Xinyi Zhou, Reza Zafarani
-    <a href='https://arxiv.org/abs/1812.00315'>Fake News: A Survey of Research, Detection Methods, and Opportunities</a>
-    arxiv.org, retrieved 2019-04-03
-<li>Olga Yurkova (2018)
-  <a href='https://gijn.org/six-fake-news-techniques-and-simple-tools-to-vet-them/'>Six
-  Fake News Techniques and Simple Tools to Vet Them</a> Global
-  Investigative Journalism Network, accessed 2019-04-03
-  [mainly non-linguistic methods]
-<li>Hannah Rashkin, Eunsol Choi, Jin Yea Jang, Svitlana Volkova and
-  Yejin Choi
-  (2017) <a href='https://www.aclweb.org/anthology/D17-1317'>Truth of
-  Varying Shades: Analyzing Language in Fake News and Political
-  Fact-Checking</a> Proceedings of the 2017 Conference on Empirical
-  Methods in Natural Language Processing, pages 2931–2937 Copenhagen,
-  Denmark, September 7–11, 2017. c 2017 Association for Computational
-  Linguistics
-
+  <li>Ethan Mollick (2023-12) <a href='https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai'>An Opinionated Guide to Which AI to Use: ChatGPT Anniversary Edition</a>, One Useful Thing
+  <li>Hutto, C.J. & Gilbert,
+    E.E. (2014). <a href='https://doi.org/10.1609/icwsm.v8i1.14550'>VADER:
+    A Parsimonious Rule-based Model for Sentiment Analysis of Social
+    Media Text. Eighth International Conference on Weblogs and Social
+    Media (ICWSM-14). Ann Arbor, MI, June 2014.
+    (<a href='https://github.com/cjhutto/vaderSentiment'>Software</a>)
 </ul>
 
 
