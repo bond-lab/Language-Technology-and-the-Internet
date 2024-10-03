@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
-year='2023'
+year='2024'
 clss='LTI'
 
 f = open(f"{year}-survey-edited.tsv")
@@ -59,18 +59,20 @@ for l in lines[2:]:  # skip first line and my entry
              timea[at].append(0)
              #timea[b].append(0)
              print ("""can't parse %s <<%s>> %s""" % (v, at, line))
+    print(timea)
     students += 1
 
 # for a in atr:
 #     if a in ('Timestamp','Name (enough so I can identify your participation)'):
 #         continue
 #     print (a)
-#     print [i for i in timea[a] if i >0]
-#     print [i for i in timeb[a] if i >0]
+#     print ([i for i in timea[a] if i >0])
+#     print ([i for i in timeb[a] if i >0])
 #     print (numpy.mean([i for i in timea[a] if i >0]))
 #     print (numpy.std([i for i in timea[a] if i >0]))
 #     print (", ".join(comments[a]))
 #     print ()
+
 
 
 media = sorted(atr[2:])
@@ -80,6 +82,8 @@ aidem = media[::-1]
 ###
 
 print (atr[2:], media)
+
+
 
 y_pos = np.arange(len(aidem))
 amean = tuple([numpy.mean(timea[a]) for a in  aidem])
@@ -201,7 +205,7 @@ One day in the life of {clss} students in {year}.
 
 <h2>Comments</h2>""", file=out)
 
-for a in  media:
+for a in  comments:
     if comments[a]:
         print ("""<p><b>{}</b>: {}""".format(a, ", ".join(comments[a])),file=out)
 
