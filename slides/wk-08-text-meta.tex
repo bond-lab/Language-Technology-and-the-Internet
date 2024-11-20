@@ -4,7 +4,7 @@
 
 \input{headx.tex}
 
-\header{Lecture 8}{Text and Meta-Text}
+\header{Lecture 8}{Text, Meta-Text and Trust}
 
 
 
@@ -39,69 +39,69 @@
 
 
 
-\myslide{Revision of the Web as Corpus}
-\begin{itemize}
-\item \blu{Direct Query}: Search Engine as Query tool and WWW as corpus?
-\\  (Objection: Results are not reliable)
-\begin{itemize}
-\item Population and exact hit counts are unknown → no statistics
-possible.
-\item Indexing does not allow to draw conclusions on the data.
-\item[\Bad] Google is missing functionalities that linguists /
-lexicographers would like to have.
-\end{itemize}
-\item \blu{Web Sample}: Use search engine to download data from the
-net and build a corpus from it.
-\begin{itemize}
-\item known size and exact hit counts → statistics possible.
-\item people can draw conclusions over the included text types.
-\item (limited) control over the content.
-\item[\Bad] sparser data
-\end{itemize}
-\end{itemize}
+% \myslide{Revision of the Web as Corpus}
+% \begin{itemize}
+% \item \blu{Direct Query}: Search Engine as Query tool and WWW as corpus?
+% \\  (Objection: Results are not reliable)
+% \begin{itemize}
+% \item Population and exact hit counts are unknown → no statistics
+% possible.
+% \item Indexing does not allow to draw conclusions on the data.
+% \item[\Bad] Google is missing functionalities that linguists /
+% lexicographers would like to have.
+% \end{itemize}
+% \item \blu{Web Sample}: Use search engine to download data from the
+% net and build a corpus from it.
+% \begin{itemize}
+% \item known size and exact hit counts → statistics possible.
+% \item people can draw conclusions over the included text types.
+% \item (limited) control over the content.
+% \item[\Bad] sparser data
+% \end{itemize}
+% \end{itemize}
 
-\myslide{Direct Query}
-\begin{itemize}
-\item Accessible through search engines (Google API, Yahoo API, Scripts)
+% \myslide{Direct Query}
+% \begin{itemize}
+% \item Accessible through search engines (Google API, Yahoo API, Scripts)
 
-\item Document counts are shown to correlate directly with ``real''
-  frequencies (Keller 2003), so search engines can help - but...
-  \begin{itemize}
-  \item lots of repetitions of the same text (not representative)
-  \item very limited query precision (no upper/lower case, no punctuation...)
-  \item only estimated counts, often hard to reproduce exactly
-  \item different queries give wildly different numbers
-  \end{itemize}
-\end{itemize}
+% \item Document counts are shown to correlate directly with ``real''
+%   frequencies (Keller 2003), so search engines can help - but...
+%   \begin{itemize}
+%   \item lots of repetitions of the same text (not representative)
+%   \item very limited query precision (no upper/lower case, no punctuation...)
+%   \item only estimated counts, often hard to reproduce exactly
+%   \item different queries give wildly different numbers
+%   \end{itemize}
+% \end{itemize}
 
-\myslide{Web Sample}
-\MyLogo{}
-\begin{itemize}
-\item Extracting and filtering web documents to create linguistically
-  annotated corpora (Kilgarriff 2006)
-  \begin{itemize}
-  \item gather documents for different topics (balance!)
-  \item exclude documents which cannot be preprocessed with available
-    tools (here taggers and lemmatizers)
-  \item exclude documents which seem irrelevant for a corpus (too short or
-    too long, word lists,...)
-  \item do this for several languages and make the corpora available
-  \end{itemize}
-\end{itemize}
+% \myslide{Web Sample}
+% \MyLogo{}
+% \begin{itemize}
+% \item Extracting and filtering web documents to create linguistically
+%   annotated corpora (Kilgarriff 2006)
+%   \begin{itemize}
+%   \item gather documents for different topics (balance!)
+%   \item exclude documents which cannot be preprocessed with available
+%     tools (here taggers and lemmatizers)
+%   \item exclude documents which seem irrelevant for a corpus (too short or
+%     too long, word lists,...)
+%   \item do this for several languages and make the corpora available
+%   \end{itemize}
+% \end{itemize}
 
 
-\myslide{Internet Corpora: Outline}
-\MyLogo{\url{http://corpus.leeds.ac.uk/internet.html}}
+% \myslide{Internet Corpora: Outline}
+% \MyLogo{\url{http://corpus.leeds.ac.uk/internet.html}}
 
-\begin{enumerate}
-\item Select Seed Words (500)
-\item Combine to form multiple queries (6,000)
-\item Query a search engine and retrieve the URLs (50,000)
-\item Download the files from the URLS (100,000,000 words)
-\item Postprocess the data (encoding; cleanup; tagging and parsing)
-\end{enumerate}
+% \begin{enumerate}
+% \item Select Seed Words (500)
+% \item Combine to form multiple queries (6,000)
+% \item Query a search engine and retrieve the URLs (50,000)
+% \item Download the files from the URLS (100,000,000 words)
+% \item Postprocess the data (encoding; cleanup; tagging and parsing)
+% \end{enumerate}
 
-Sharoff, S (2006) Creating general-purpose corpora using automated search engine queries. In M. Baroni, S. Bernardini (eds.) WaCky! Working papers on the Web as Corpus, Bologna, 2006.
+% Sharoff, S (2006) Creating general-purpose corpora using automated search engine queries. In M. Baroni, S. Bernardini (eds.) WaCky! Working papers on the Web as Corpus, Bologna, 2006.
 
 \myslide{Internet Corpora Summary}
 \MyLogo{}
@@ -218,11 +218,165 @@ NumberOfPages: 23
   \item As it is unseen, it is easy to lie in the MetaData
   \end{itemize}
 \end{itemize}
-\begin{quotation} \small 
+\begin{quotation} 
   It wasn't long before webmasters with no scruples saw an opportunity to gain favour with the search engines by adding in keywords that did not pertain to the content of their pages. Various tactics were thought up to get ranked higher for certain keywords, and an entire industry sprang up to optimise search engine positioning. This was, in effect, cheating, and ``keyword spamming'' became a serious problem for search engines, who vainly attempted to add filters that would notice when a webmaster was loading up on the wrong keywords.
 \end{quotation}
 
 
+
+\myslide{Criticism of the Semantic Web}
+\MyLogo{\url{http://www.well.com/~doctorow/metacrap.htm} (lightly revised)}
+Doctorow's seven insurmountable obstacles to reliable metadata are:
+\begin{enumerate}
+\item  People lie
+\item  People are lazy
+\item  People are stupid
+\item  Mission Impossible: know thyself
+\item  Schemas aren't neutral
+\item  Metrics influence results
+\item  There's more than one way to describe something
+\end{enumerate}
+
+
+\myslide{Cory Doctorow}
+\MyLogo{https://xkcd.com/239/}
+
+\includegraphics[width=0.9\textwidth]{../pics/blagofaire.png}
+
+A Canadian-British blogger, journalist, and science fiction author who
+serves as co-editor of the blog Boing Boing. He is an activist in
+favour of liberalising copyright laws and a proponent of the Creative
+Commons organization, using some of their licences for his books. Some
+common themes of his work include digital rights management, file
+sharing, and post-scarcity economics. (Wikipedia) 
+
+\myslide{People lie}
+
+Metadata exists in a competitive world. Suppliers compete to sell
+their goods, cranks compete to convey their crackpot theories (mea
+culpa), artists compete for audience.
+
+Thus:
+\begin{itemize}
+\item    A search for any commonly referenced term at a search-engine like Altavista will often turn up at least one porn link in the first ten results.
+\item     Your mailbox is full of spam with subject lines like "Re: The information you requested."
+\item     Publisher's Clearing House sends out advertisements that holler "You may already be a winner!"
+\item     Press-releases have gargantuan lists of empty buzzwords attached
+\end{itemize}
+
+\myslide{People are lazy}
+
+Here in the Info-Ivory-Tower, we understand the importance of creating
+and maintaining excellent metadata for our information.
+
+But info-civilians are remarkably cavalier about their
+information. Your clueless aunt sends you email with no subject line,
+half the pages on Geocities are called "Please title this page" and
+your boss stores all of his files on his desktop with helpful titles
+like "UNTITLED.DOC."
+
+\myslide{People are stupid}
+
+Even when there's a positive benefit to creating good metadata, people
+steadfastly refuse to exercise care and diligence in their metadata
+creation.
+
+Take eBay: every seller there has a damned good reason for
+double-checking their listings for typos and misspellings. Try
+searching for "plam" on eBay. Right now, that turns up nine typoed
+listings for "Plam Pilots." Misspelled listings don't show up in
+correctly-spelled searches and hence garner fewer bids and lower
+sale-prices. You can almost always get a bargain on a Plam Pilot at
+eBay.
+
+The fine (and gross) points of literacy -- spelling, punctuation,
+grammar -- elude the vast majority of the Internet's users. To believe
+that J. Random Users will suddenly and en masse learn to spell and
+punctuate -- let alone accurately categorize their information
+according to whatever hierarchy they're supposed to be using -- is
+self-delusion of the first water.
+
+\myslide{Mission: Impossible -- know thyself}
+
+In meta-utopia, everyone engaged in the heady business of describing
+stuff carefully weighs the stuff in the balance and accurately divines
+the stuff's properties, noting those results.
+
+Simple observation demonstrates the fallacy of this assumption. When
+Nielsen used log-books to gather information on the viewing habits of
+their sample families, the results were heavily skewed to Masterpiece
+Theater and Sesame Street. Replacing the journals with set-top boxes
+that reported what the set was actually tuned to showed what the
+average American family was really watching: light entertainment.
+
+People are lousy observers of their own behaviors. Entire religions
+are formed with the goal of helping people understand themselves
+better; therapists rake in billions working for this very end.
+
+
+\myslide{Schemas aren't neutral}
+
+In a given sub-domain, say, Washing Machines, experts agree on
+sub-hierarchies, with classes for reliability, energy consumption,
+color, size, etc.
+
+Nothing could be farther from the truth. Any hierarchy of ideas necessarily implies the importance of some axes over others. A manufacturer of small, environmentally conscious washing machines would draw a hierarchy that looks like this:
+\begin{verbatim}
+Energy consumption:
+    Water consumption:
+        Size:
+            Capacity:
+                Reliability:
+
+\end{verbatim}
+\newpage
+While a manufacturer of glitzy, feature-laden washing machines would want something like this:
+\begin{verbatim}
+Color:
+    Size:
+        Programmability:
+            Reliability:
+\end{verbatim}
+
+The conceit that competing interests can come to easy accord on a common vocabulary totally ignores the power of organizing principles in a marketplace.
+
+\myslide{Metrics influence results}
+
+Ranking axes are mutually exclusive: software that scores high for
+security scores low for convenience, desserts that score high for
+decadence score low for healthiness. Every player in a metadata
+standards body wants to emphasize their high-scoring axes and
+de-emphasize (or, if possible, ignore altogether) their low-scoring
+axes.
+
+It's wishful thinking to believe that a group of people competing to
+advance their agendas will be universally pleased with any hierarchy
+of knowledge. The best that we can hope for is a detente in which
+everyone is equally miserable.
+
+\myslide{There's more than one way to describe something}
+
+"No, I'm not watching cartoons! It's cultural anthropology."
+
+"This isn't smut, it's art."
+
+"It's not plagiarism, it's borrowing!''
+
+Reasonable people can disagree forever on how to describe something. Arguably, your Self is the collection of associations and descriptors you ascribe to ideas. Requiring everyone to use the same vocabulary to describe their material denudes the cognitive landscape, enforces homogeneity in ideas.
+
+And that's just not right. 
+
+
+\myslide{So how can we get metadata?}
+
+\begin{itemize}
+\item Look for visible metadata (you can check)
+\item Look for structural metadata (from the system)
+\item Look for implicit metadata
+  \begin{itemize}
+  \item Finding a new source of metadata opens up a new world of knowledge
+  \end{itemize}
+\end{itemize}
 
 \myslide{Keywords and Categories}
 \begin{itemize}
@@ -312,7 +466,8 @@ Cheap but not very cheerful                     10 June, 2010
 \begin{itemize}
 \item An article's vote is weighted according to its
   citation impact. 
-\item This  can be formalized in a   well-defined way and calculated.
+\item This  can be formalized in a well-defined way and calculated.
+  \\ PageRank!
 \end{itemize}
 \end{itemize}
 
@@ -407,20 +562,25 @@ Valentin I. Spitkovsky, Daniel Jurafsky, Hiyan Alshawi (2010) \textit{Profiting 
 \myslide{Bracketed Glosses}
 \CJKfamily{gbsn}
 \begin{verbatim}
-GPS	
-通用④回解诀者
-２８附录：（通用④回解诀者》（ＧＰＳ）计算机程序解决・・河内塔。
-{2069:corpus0.txt}
+EN:SomeThoughtsConcerningEducation	
+教AZH: 育漫话
 
-SomeThoughtsConcerningEducation	
-教育漫话
 笔者在认真阅读洛克的教育著作《教育漫话》
 （ＳｏｍｅＴｈｏｕｇｈｔｓＣｏｎｃｅｒｎｉｎｇＥｄｕｃａｔｉｏｎ）、
 《关于理解的指导》以及《贫穷儿童劳动学校计划》
 （ＰｌａｎｏｆＷｏｒｋｉｎｇＳｃｈｏｏｌｆｏｒＰｏｏｒ ...
 {25094:corpus0.txt}
+
+EN: GPS	
+ZH: 通用④回解诀者
+
+２８附录：（通用④回解诀者》（ＧＰＳ）计算机程序解决・・河内塔。
+{2069:corpus0.txt}
 \end{verbatim}
 \CJKfamily{min}
+
+Extracted using regular expressions from the Chinese Gigaword Corpus.
+
 
 \myslide{Cross-lingual Disambiguation}
 
@@ -437,7 +597,7 @@ SomeThoughtsConcerningEducation
 \item We can resolve the zero pronoun: It must be the speaker. 
 \end{itemize}
 
-\myslide{Query Data}
+\myslide{Query Data as Meta-data}
 AOL user 2708:
 \begin{itemize}\addtolength{\itemsep}{-1ex}
 \item revenge tactics
@@ -465,7 +625,9 @@ AOL user 2708:
 
 Unfortunately redirects are rarely typed (so we don't know the
 relation, but have to infer it).
- 
+
+\lex{type}: identify as belonging to a certain type ---  \eng{Such people can practically be typed} PWN3.0
+
 \myslide{Cross Wikipedia Links}
 \MyLogo{}
 \begin{description}\addtolength{\itemsep}{-1ex}
@@ -480,6 +642,35 @@ relation, but have to infer it).
 \item[tr] Adlî dil bilimi
 \item[zh] 司法语言学
 \end{description}
+
+\myslide{Why is metadata important?}
+\MyLogo{}
+\begin{itemize}
+\item The 1990s started a revolution in empirical linguistics
+  \begin{itemize}
+  \item New insights come from \emp{Data Mining} large text collections
+    \begin{itemize}
+    \item Corpus Linguistics
+    \item You can do with a computer what you can't do with paper
+    \end{itemize}
+  \item New tools come from supervised \emp{Machine Learning}
+  \end{itemize}
+\item Annotation is expensive and tedious to do
+\item We want to get annotation for free
+\item People appreciate clever ideas
+\end{itemize}
+
+
+
+\myslide{What about bad actors?}
+
+\begin{itemize}
+\item Some people are deliberately trying to deceive you
+\item To steal from (scam)
+\item To persuade you (fake news)
+\item To trick you (troll)
+\end{itemize}
+
 
 \myslide{Deliberate Deceit: Phishing}
 \MyLogo{\url{http://en.wikipedia.org/wiki/Phishing}}
@@ -527,8 +718,13 @@ System Administrator
 \item Spoofed URLs
 \item Ultimatums
 \item Weird misspellings: \url{NTU.edu.org}
+\item Link to a strange web site
 \end{itemize}
-
+\medskip
+\begin{itemize}
+\item Most phishing attempts fail
+\item But they are cheap to construct, so even one in a million response rates are enough
+\end{itemize}
 
 
 
@@ -551,10 +747,11 @@ System Administrator
 
 \begin{itemize}
 \item Verifying facts is difficult, but we can analyze language \citep{rashkin-etal-2017-truth}
-  \\
+  \\[2ex]
   \begin{small}
     \begin{tabular}{lrll}
       Phenomenon & Ratio & Example & Type \\
+      \hline
       Swear& 7.00& Ms. Rand, who has been damned to eternal torment
                   ...& S\\
       2p (You) & 6.73 & You would instinctively justify \ldots & P  \\
@@ -563,11 +760,10 @@ System Administrator
       Negation &  1.51 &  There is nothing that outrages liberals more
                          than ...  & H \\
       Superlatives &   1.17 &  Fresh water is the single most
-                              important natural resource  &  P \\
-      \hline
+                              important natural resource  &  P \\[2ex]
       Comparitives &   0.86  &  ... from fossil fuels to
                                greener sources of energy  & P  \\
-Hear & 0.50 & The prime minister also spoke about the commission ... &
+      Hear & 0.50 & The prime minister also spoke about the commission ... &
                                                                        S \\
       Number & 0.43 &  ... 7 million foreign tourists coming to the
                       country in 2010 & S \\
@@ -584,25 +780,70 @@ Hear & 0.50 & The prime minister also spoke about the commission ... &
 
 \end{itemize}
 
-\myslide{Why is this important?}
-\MyLogo{}
+
+\myslide{A new problem: AI slop}
+\MyLogo{\url{https://www.theguardian.com/technology/article/2024/may/19/spam-junk-slop-the-latest-wave-of-ai-behind-the-zombie-internet}}
 \begin{itemize}
-\item The 1990s started a revolution in empirical linguistics
-  \begin{itemize}
-  \item New insights come from \emp{Data Mining} large text collections
-    \begin{itemize}
-    \item Corpus Linguistics
-    \item You can do with a computer what you can't do with paper
-    \end{itemize}
-  \item New tools come from supervised \emp{Machine Learning}
-  \end{itemize}
-\item Annotation is expensive and tedious to do
-\item We want to get annotation for free
-\item People appreciate clever ideas
-\item In Singapore multiple-languages can serve as annotation, \ldots
+\item \txx{slop} is the new name for unwanted AI-generated content (like \txx{spam} for email)
+\item Mindlessly generated content presented as real content
+\item We used to have content farms, where poorly paid people create fake accounts, web pages and news
+\item Now AI can do it faster and cheaper!
+  
 \end{itemize}
 
-   
+\myslide{Facebook Is the 'Zombie Internet'}
+\MyLogo{\url{https://www.404media.co/email/24eb6cea-6fa6-4b98-a2d2-8c4ba33d6c04/}}
+
+\begin{itemize}
+\item Jason Koebler looks at AI generated pages on facebook, which are then often full of AI bots commenting on them, \ldots
+
+\item For example: \includegraphics[width=0.45\textwidth]{../pics/AI-jesus.png}
+  \begin{itemize}
+  \item Amen 
+  \item Amin 
+  \item Happy birthday 
+  \item Thank you Lord Amen happy birthday
+  \end{itemize}
+\item But sometimes pictures fool people, and real people waste time discussing them
+  
+\end{itemize}
+
+\myslide{FungiFriend}
+\MyLogo{\url{https://www.404media.co/ai-chatbot-added-to-mushroom-foraging-facebook-group-immediately-gives-tips-for-cooking-dangerous-mushroom/}}
+
+\begin{itemize}
+\item An AI chatbot called “FungiFriend” joined mushroom identification Facebook group
+\item a user asked “how do you cook Sarcosphaera coronaria,” a type of mushroom that was once thought edible but is now known to hyperaccumulate arsenic and has caused a documented death
+\item FungiFriend told the member that it is “edible but rare,” and said “cooking methods mentioned by some enthusiasts include sautéing in butter, adding to soups or stews, and pickling.”
+\item This was a bot created and run by META, Facebook's parent company!
+\end{itemize}
+%
+\begin{center}
+  \large You have to be careful all the time!
+\end{center}
+
+\myslide{What to Do?}
+
+\begin{itemize}
+\item be vigilant
+\item look at metadata
+\item look at implicit metadata
+\item be ethical
+  \begin{itemize}
+  \item don't create slop
+  \item don't exploit slop
+  \end{itemize}
+\item push for others to do the same
+\item look for human-centric media
+  \begin{itemize}
+  \item Blue Sky
+  \item Blogs
+  \item Substack with authors you can trust
+  \item Newspapers! 
+  \end{itemize}
+\end{itemize}
+  
+
 %\myslide{References}
 \bibliography{abb,mtg,nlp,ling}
 
