@@ -4,7 +4,7 @@
 \usepackage{listings}
 \input{headx.tex}
 \newcommand{\prompt}[1]{\fbox{
-    \begin{minipage}{0.9\linewidth}
+    \begin{minipage}{0.9\linewidth}\ttfamily
       #1
     \end{minipage}}}
 
@@ -52,7 +52,9 @@
 
 \begin{itemize}
 \item Non-supervised --- just needs text (and/or code)
- \\[3ex]
+  \\[3ex]
+  \begin{small}
+
   \begin{tabular}{clrrl}
     Date & Name & Parameters$^{*}$ & Data & Type \\ \hline
     2018 &  GPT &  117 &  4.5 GB &  Books \\
@@ -60,11 +62,15 @@
     2020 &  GPT-3 &  175,000 &  570 GB &
       Web 82\%, Books 16\%  Wiki 3\% \\ 
     2021 & ChatGPT$^{**}$ \\
-    2023 & GPT-4 & {$^{***}$}1,750,000 & ? &  text and images
+    2023 & GPT-4 & {$^{***}$}1,750,000 & ? &  text and images\\
+    2024 & GPT-4o & & ? & +  audio and video 
+
   \end{tabular}
   \\ {*} million
   \\ {**}  GPT-3.5 fine-tuned to follow instructions and interact
   \\ {***} estimate
+    
+  \end{small}
 \end{itemize}
 
 Lambdalabs estimates a cost of around \$4.6 million US dollars and 355 years to train GPT-3 on a single GPU in 2020
@@ -125,6 +131,10 @@ Create a list of interesting places to visit in Olomouc:\\
 \myslide{You can add a lot more information}
 \begin{itemize}
 \item \txx{Zero-shot} prompting means providing a prompt with no examples
+  \\
+
+  \bigskip
+  
 \prompt{Classify the text into positive, neutral or negative: \\
 Text: That shot selection was awesome. \\
 Classification: \\
@@ -132,10 +142,9 @@ Classification: \\
 \newpage
 
 \item \txx{Few-shot} prompting means you give the system some examples
+ \\
 
-
-
-
+  \bigskip
 
 \prompt{Text: Today the weather is fantastic \\
 Classification: Pos \\
@@ -146,6 +155,28 @@ Classification: Neg \\
 Text: That shot selection was awful \\
 Classification:
 \\}
+
+\newpage
+\item \txx{RAG: Retrieval-augmented generation}  means you give the system some similar examples (from a database or corpus of some kind)
+ \\
+
+  \bigskip
+
+
+  \prompt{Input: That shot selection was awful\\ 
+LOOKUP SIMILAR EXAMPLES AND ADD THEM:
+   
+Text: Your shot selection was brilliant \\
+Classification: Pos \\
+Text: That shot choice was unexpected \\
+Classification: Neu \\
+Text: The editor's That shot selection sucked \\
+Classification: Neg \\
+Text: That shot selection was awful \\
+Classification:
+\\}
+
+
 
 \end{itemize}
 
@@ -291,9 +322,23 @@ Why does my Python code not iterate from 1 to 10 and print all numbers out?
   \begin{itemize}
   \item Experimentation with Various Prompts
   \item Analyzing Model Responses for Improvement
+  \item Ask for multiple options
   \end{itemize}
 \end{itemize}
   
+\myslide{Specialized tools based on LLMs}
+
+\begin{itemize}
+\item Some LLMs can run code for you in a sandbox
+  \\ great for web programming
+  
+\item \href{https://consensus.app/search/}{consensus.app} is an academic search engine. It uses language models (LLMs) and purpose-built search technology (Vector search) to find relevant papers, then synthesizes topic-level and paper-level insights. It also links papers to other papers.
+
+\item There are many more
+  
+\end{itemize}
+
+
 
 \section{Discussion}
 
@@ -331,7 +376,9 @@ Why does my Python code not iterate from 1 to 10 and print all numbers out?
     \item GPT-3 models relationships between words without having an understanding of the meaning behind the utterances
     \item So it makes stuff up (\txx{hallucinates})
       \\ and there is no way of knowing when it is doing so
+      \\ more accurately, it cannot distinguish truth from falsehood
     \item Fixing this is a hot-topic of research, but there is no clear answer
+      \\ RAG and linking to sources are the best options
     \end{itemize}
   \item Some of its training data is copy-righted text
     \begin{itemize}
@@ -346,7 +393,7 @@ Why does my Python code not iterate from 1 to 10 and print all numbers out?
     \item The programming is not-elegant
     \item The pictures are derivative
     \end{itemize}
-    We may end up being drowned in mediocre AI produced crap
+    We may end up being drowned in mediocre AI produced crap (\txx{slop})
     \begin{itemize}
     \item  SF magazines are already reporting an increase in submissions
     \item \emp{If students can use it to save time, then they will}
@@ -426,7 +473,7 @@ Why does my Python code not iterate from 1 to 10 and print all numbers out?
 
 \myslide{If ChatGPT Can Do It, It’s Not Worth Doing}
 
-  \href{https://www.insidehighered.com/opinion/blogs/just-visiting/2023/09/20/chatgpt-shows-way-toward-our-own-humanity}{If ChatGPT Can Do It, It’s Not Worth Doing}
+  \href{https://www.insidehighered.com/opinion/blogs/just-visiting/2023/09/20/chatgpt-shows-way-toward-our-own-humanity}{If ChatGPT Can Do It, It’s Not Worth Doing}, 
 \href{https://www.insidehighered.com/}{Inside Higher Ed} by  John Warner,  2023
   
 \href{https://lwn.net/Articles/945504/}{AI from a legal perspective} Linux Weekly News by Jake Edge September 26, 2023
