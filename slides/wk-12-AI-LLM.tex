@@ -333,9 +333,24 @@ By Brendan Bycroft (2023)
   \\ \href{https://llm-attacks.org/}{\small Universal and Transferable Adversarial Attacks on Aligned Language Models}
 \end{itemize}
 
+\myslide{ChatGPT: Jack of all trades, master of none}
+  
+\begin{itemize}
+\item \citet{KOCON2023101861} show that ChatGPT (with little tuning) is worse than the
+  State-of-the-Art (SOTA) for almost all natural language processing
+  tasks, but does quite well at all of them.
+  \begin{center}
+    \includegraphics[height=0.7\textheight]{../pics/1-s2.0-S156625352300177X-gr12.jpg}    
+  \end{center}
+
+\end{itemize}
+
 
 \section{Some more general issues}
-  
+
+
+
+
 
 
 \myslide{If ChatGPT Can Do It, It’s Not Worth Doing}
@@ -478,6 +493,20 @@ racist concepts.
     has dawned}
 \item It's rubbish
 \end{itemize}
+
+
+\myslide{Some technical issues}
+\MyLogo{\href{https://www.explainxkcd.com/wiki/index.php/Robert');_DROP_TABLE_Students;--}{Robert'); DROP TABLE Students;-- ``Little Bobby Tables''}}
+\begin{itemize}
+\item LLMs are non-deterministic, so you can't guarantee the same results each time (or even the same style/format).   This is made worse in practice by the fact that companies routinely change online models without notice.
+\item Because instructions and input are the same: \txx{text}.   It is very hard to guarantee there are no bad instructions in the input, \ldots
+\end{itemize}
+  \newpage
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{../pics/little-bobby-ignore.jpg}
+  \end{center}
+
+
 
 
 \myslide{Some more interesting papers}
